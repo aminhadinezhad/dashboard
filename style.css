@@ -1,0 +1,67 @@
+.slidebar {
+  background-color: #f8f9fa;
+}
+
+.btn-menu {
+  border: none;
+  color: #6c757d;
+  background-color: #fff;
+}
+
+.btn-menu:hover {
+  color: #212529bf;
+}
+
+.menu-title {
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.nav-link {
+  color: #6c757d;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background-color: #f3f4f6;
+  color: #6c757d;
+}
+
+.nav-link:focus {
+  color: #a8cf45;
+}
+
+ion-icon {
+  font-size: 23px;
+}
+
+.small ion-icon {
+  font-size: 16px;
+}
+
+.nav-item.active .nav-link {
+  background-color: #a8cf45;
+  color: white;
+}
+
+.nav-item.active .nav-link:hover {
+  background-color: #95b93d;
+  color: white;
+}
+
+.main-content {
+  background-color: #fff;
+}
+
+@media (max-width: 992px) {
+  .offcanvas {
+    width: 300px !important;
+  }
+
+  .offcanvas-body {
+    display: flex;
+    flex-direction: column;
+  }
+}
