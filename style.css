@@ -1,67 +1,53 @@
-.slidebar {
-  background-color: #f3f5f7;
-}
-
 .btn-menu {
   border: none;
-  color: #6c757d;
-  background-color: #fff;
+  color: rgb(159, 159, 169);
+  background-color: inherit;
 }
 
 .btn-menu:hover {
-  color: #212529bf;
+  color: rgba(159, 159, 169, 0.8);
 }
 
 .menu-title {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 1px;
 }
 
-.nav-link {
-  color: #6c757d;
-  transition: all 0.3s ease;
-  font-size: 14px;
-  text-decoration: none;
+.nav-item svg {
+  color: rgb(159, 159, 169);
+}
+
+.nav-item span {
+  color: rgb(63, 63, 71);
 }
 
 .nav-link:hover {
-  background: rgba(15, 23, 42, 0.04);
-  color: #6c757d;
+  background: rgba(0, 0, 0, 0.03);
 }
 
-.nav-link:focus {
-  color: #a8cf45;
+.nav-link.active {
+  background: rgba(0, 0, 0, 0.03);
 }
 
-ion-icon {
-  font-size: 23px;
+.nav-link.active span {
+  color: rgb(56, 134, 80);
 }
 
-.small ion-icon {
-  font-size: 16px;
+.nav-link.active svg {
+  color: rgb(56, 134, 80);
 }
 
-.nav-item.active .nav-link {
-  background-color: #a8cf45;
-  color: white;
-}
+@media (max-width: 991px) {
+  .header {
+    display: none !important;
+  }
 
-.nav-item.active .nav-link:hover {
-  background-color: #95b93d;
-  color: white;
-}
-
-.main-content {
-  background-color: #fff;
-}
-
-@media (max-width: 992px) {
   .offcanvas {
-    width: 300px !important;
+    width: 290px !important;
   }
 
   .offcanvas-body {
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
   }
 }

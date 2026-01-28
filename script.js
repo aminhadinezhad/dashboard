@@ -1,23 +1,27 @@
 'use strict';
 
-// const list = document.querySelector('.list');
-// const items = document.querySelectorAll('.item');
-// const chevronDowns = document.querySelectorAll('.chevron-down');
+const slidebar = document.querySelector('.sidebar-content');
+const offcanvas = document.querySelector('.offcanvas');
+const links = document.querySelectorAll('.nav-link');
 
-// list.addEventListener('click', function (e) {
-//   const clicked = e.target.closest('.item');
+slidebar.addEventListener('click', function (e) {
+  const clickedLink = e.target.closest('.nav-link');
 
-//   if (!clicked) return;
+  if (!clickedLink) return;
 
-//   const rotateChevron = function (index) {
-//     let counter = 0;
-//     for (let i = 0; i < Number(index.id); i++) {
-//       if (i < Number(index.id)) counter = counter + 1;
-//     }
-//     chevronDowns[counter].classList.toggle('rotate');
-//   };
+  links.forEach(link => {
+    link.classList.remove('active');
+  });
+  clickedLink.classList.add('active');
+});
 
-//   rotateChevron(clicked);
-// });
+offcanvas.addEventListener('click', function (e) {
+  const clickedLink = e.target.closest('.nav-link');
 
+  if (!clickedLink) return;
 
+  links.forEach(link => {
+    link.classList.remove('active');
+  });
+  clickedLink.classList.add('active');
+});
