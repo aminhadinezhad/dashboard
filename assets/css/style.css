@@ -38,7 +38,7 @@
 }
 
 @media (max-width: 991px) {
-  .header {
+  .sidebar-header {
     display: none !important;
   }
 
