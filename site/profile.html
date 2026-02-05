@@ -62,39 +62,11 @@
     </style>
   </head>
   <body>
-    <div
-      class="d-lg-none position-sticky top-0 px-3 py-2 border-bottom border-1"
-      style="background-color: rgba(255, 255, 255); z-index: 1000"
-    >
-      <button
-        class="btn-menu btn-menu--open d-lg-none"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#sidebarOffcanvas"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.75"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-text-align-justify-icon lucide-text-align-justify"
-        >
-          <path d="M3 5h18" />
-          <path d="M3 12h18" />
-          <path d="M3 19h18" />
-        </svg>
-      </button>
-    </div>
     <div class="pt-4 pb-4">
       <div class="container-lg">
         <div class="row">
           <div class="col-lg-3">
-            <div class="slidebar d-flex flex-column">
+            <div class="sidebar d-flex flex-column">
               <div class="sidebar-header d-flex p-3">
                 <a
                   href="../index.html"
@@ -108,14 +80,13 @@
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="1.75"
+                    stroke-width="1.5"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    class="lucide lucide-circle-user-round-icon lucide-circle-user-round"
+                    class="lucide lucide-user-round"
                   >
-                    <path d="M18 20a6 6 0 0 0-12 0" />
-                    <circle cx="12" cy="10" r="4" />
-                    <circle cx="12" cy="12" r="10" />
+                    <circle cx="12" cy="8" r="5" />
+                    <path d="M20 21a8 8 0 0 0-16 0" />
                   </svg>
                   <span class="fw-semibold" style="font-size: 18px"
                     >محمد امین هادی نژاد</span
@@ -123,212 +94,6 @@
                 </a>
               </div>
               <div class="sidebar-content d-none d-lg-flex flex-column">
-                <ul class="list-unstyled p-0">
-                  <li class="nav-item mb-1">
-                    <a
-                      href="orders.html"
-                      class="nav-link d-flex align-items-center gap-2 px-3 py-2 rounded-3"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.75"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-handbag-icon lucide-handbag"
-                      >
-                        <path
-                          d="M2.048 18.566A2 2 0 0 0 4 21h16a2 2 0 0 0 1.952-2.434l-2-9A2 2 0 0 0 18 8H6a2 2 0 0 0-1.952 1.566z"
-                        />
-                        <path d="M8 11V6a4 4 0 0 1 8 0v5" />
-                      </svg>
-                      <span>سفارش های من</span>
-                    </a>
-                  </li>
-                  <li class="nav-item mb-1">
-                    <a
-                      href="profile.html"
-                      class="nav-link d-flex align-items-center gap-2 px-3 py-2 rounded-3 active"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.75"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-user-round-pen-icon lucide-user-round-pen"
-                      >
-                        <path d="M2 21a8 8 0 0 1 10.821-7.487" />
-                        <path
-                          d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"
-                        />
-                        <circle cx="10" cy="8" r="5" />
-                      </svg>
-                      <span class="fw-normal">ویرایش پروفایل</span>
-                    </a>
-                  </li>
-                  <li class="nav-item mb-1">
-                    <a
-                      href="credential.html"
-                      class="nav-link d-flex align-items-center gap-2 px-3 py-2 rounded-3"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.75"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-key-round-icon lucide-key-round"
-                      >
-                        <path
-                          d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"
-                        />
-                        <circle cx="16.5" cy="7.5" r=".5" fill="currentColor" />
-                      </svg>
-                      <span>تغییر رمز عبور</span>
-                    </a>
-                  </li>
-                  <li class="nav-item mb-1">
-                    <a
-                      href="location.html"
-                      class="nav-link d-flex align-items-center gap-2 px-3 py-2 rounded-3"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.75"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-map-pin-icon lucide-map-pin"
-                      >
-                        <path
-                          d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
-                        />
-                        <circle cx="12" cy="10" r="3" />
-                      </svg>
-                      <span>ثبت نشانی جدید</span>
-                    </a>
-                  </li>
-                  <li class="nav-item mb-1">
-                    <a
-                      href="https://www.taminfalat.com/"
-                      class="nav-link d-flex align-items-center gap-2 px-3 py-2 rounded-3"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.75"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-log-out-icon lucide-log-out"
-                      >
-                        <path d="m16 17 5-5-5-5" />
-                        <path d="M21 12H9" />
-                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-                      </svg>
-                      <span>خروج</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div
-              class="offcanvas offcanvas-end p-0"
-              tabindex="-1"
-              id="sidebarOffcanvas"
-            >
-              <div class="mb-2">
-                <div
-                  class="d-flex align-items-center justify-content-between p-3"
-                >
-                  <div>
-                    <a href="https://www.taminfalat.com/">
-                      <img
-                        src="../assets/images/logo.png"
-                        alt=""
-                        width="170px"
-                      />
-                    </a>
-                  </div>
-                  <div>
-                    <button
-                      class="btn-menu btn-menu--close"
-                      type="button"
-                      data-bs-toggle="offcanvas"
-                      data-bs-target="#sidebarOffcanvas"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.75"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-x-icon lucide-x"
-                      >
-                        <path d="M18 6 6 18" />
-                        <path d="m6 6 12 12" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <div class="d-flex p-3">
-                  <a
-                    href="../index.html"
-                    class="d-flex align-items-center gap-2 text-decoration-none"
-                    style="color: rgb(1, 46, 15)"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.75"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="lucide lucide-circle-user-round-icon lucide-circle-user-round"
-                    >
-                      <path d="M18 20a6 6 0 0 0-12 0" />
-                      <circle cx="12" cy="10" r="4" />
-                      <circle cx="12" cy="12" r="10" />
-                    </svg>
-                    <span class="fw-semibold" style="font-size: 18px"
-                      >محمد امین هادی نژاد</span
-                    >
-                  </a>
-                </div>
-              </div>
-
-              <div class="">
                 <ul class="list-unstyled p-0">
                   <li class="nav-item mb-1">
                     <a
@@ -367,7 +132,7 @@
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="1.75"
+                        stroke-width="1.5"
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         class="lucide lucide-user-round-pen-icon lucide-user-round-pen"
@@ -393,7 +158,7 @@
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="1.75"
+                        stroke-width="1.5"
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         class="lucide lucide-key-round-icon lucide-key-round"
@@ -418,7 +183,7 @@
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="1.75"
+                        stroke-width="1.5"
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         class="lucide lucide-map-pin-icon lucide-map-pin"
@@ -443,7 +208,7 @@
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="1.75"
+                        stroke-width="1.5"
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         class="lucide lucide-log-out-icon lucide-log-out"
@@ -458,6 +223,111 @@
                 </ul>
               </div>
             </div>
+          </div>
+
+          <div class="bottombar fixed-bottom d-lg-none">
+            <ul class="bottombar-nav">
+              <li class="bottom-nav-item">
+                <a href="../index.html" class="bottom-nav-link">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-user-round"
+                  >
+                    <circle cx="12" cy="8" r="5" />
+                    <path d="M20 21a8 8 0 0 0-16 0" />
+                  </svg>
+                  <span class="menu-title">داشبورد</span>
+                </a>
+              </li>
+
+              <li class="bottom-nav-item">
+                <a href="orders.html" class="bottom-nav-link">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      d="M2.048 18.566A2 2 0 0 0 4 21h16a2 2 0 0 0 1.952-2.434l-2-9A2 2 0 0 0 18 8H6a2 2 0 0 0-1.952 1.566z"
+                    />
+                    <path d="M8 11V6a4 4 0 0 1 8 0v5" />
+                  </svg>
+                  <span class="menu-title">سفارشات</span>
+                </a>
+              </li>
+
+              <li class="bottom-nav-item active">
+                <a href="profile.html" class="bottom-nav-link">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path d="M2 21a8 8 0 0 1 10.821-7.487" />
+                    <path
+                      d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"
+                    />
+                    <circle cx="10" cy="8" r="5" />
+                  </svg>
+                  <span class="menu-title">پروفایل</span>
+                </a>
+              </li>
+
+              <li class="bottom-nav-item">
+                <a href="location.html" class="bottom-nav-link">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                    />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  <span class="menu-title">نشانی</span>
+                </a>
+              </li>
+
+              <li class="bottom-nav-item">
+                <a href="https://www.taminfalat.com/" class="bottom-nav-link">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path d="m16 17 5-5-5-5" />
+                    <path d="M21 12H9" />
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                  </svg>
+                  <span class="menu-title">خروج</span>
+                </a>
+              </li>
+            </ul>
           </div>
 
           <div class="col-lg-9">
@@ -533,20 +403,21 @@
                             "
                           >
                             <svg
-                              class="fi-icon fi-size-sm"
                               xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 16 16"
-                              fill="currentColor"
-                              aria-hidden="true"
-                              data-slot="icon"
-                              width="25px"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-pencil-icon lucide-pencil"
                             >
                               <path
-                                d="M13.488 2.513a1.75 1.75 0 0 0-2.475 0L6.75 6.774a2.75 2.75 0 0 0-.596.892l-.848 2.047a.75.75 0 0 0 .98.98l2.047-.848a2.75 2.75 0 0 0 .892-.596l4.261-4.262a1.75 1.75 0 0 0 0-2.474Z"
-                              ></path>
-                              <path
-                                d="M4.75 3.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h6.5c.69 0 1.25-.56 1.25-1.25V9A.75.75 0 0 1 14 9v2.25A2.75 2.75 0 0 1 11.25 14h-6.5A2.75 2.75 0 0 1 2 11.25v-6.5A2.75 2.75 0 0 1 4.75 2H7a.75.75 0 0 1 0 1.5H4.75Z"
-                              ></path>
+                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                              />
+                              <path d="m15 5 4 4" />
                             </svg>
                           </button>
                         </div>
@@ -577,20 +448,21 @@
                             "
                           >
                             <svg
-                              class="fi-icon fi-size-sm"
                               xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 16 16"
-                              fill="currentColor"
-                              aria-hidden="true"
-                              data-slot="icon"
-                              width="25px"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-pencil-icon lucide-pencil"
                             >
                               <path
-                                d="M13.488 2.513a1.75 1.75 0 0 0-2.475 0L6.75 6.774a2.75 2.75 0 0 0-.596.892l-.848 2.047a.75.75 0 0 0 .98.98l2.047-.848a2.75 2.75 0 0 0 .892-.596l4.261-4.262a1.75 1.75 0 0 0 0-2.474Z"
-                              ></path>
-                              <path
-                                d="M4.75 3.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h6.5c.69 0 1.25-.56 1.25-1.25V9A.75.75 0 0 1 14 9v2.25A2.75 2.75 0 0 1 11.25 14h-6.5A2.75 2.75 0 0 1 2 11.25v-6.5A2.75 2.75 0 0 1 4.75 2H7a.75.75 0 0 1 0 1.5H4.75Z"
-                              ></path>
+                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                              />
+                              <path d="m15 5 4 4" />
                             </svg>
                           </button>
                         </div>
@@ -621,20 +493,21 @@
                             "
                           >
                             <svg
-                              class="fi-icon fi-size-sm"
                               xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 16 16"
-                              fill="currentColor"
-                              aria-hidden="true"
-                              data-slot="icon"
-                              width="25px"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-pencil-icon lucide-pencil"
                             >
                               <path
-                                d="M13.488 2.513a1.75 1.75 0 0 0-2.475 0L6.75 6.774a2.75 2.75 0 0 0-.596.892l-.848 2.047a.75.75 0 0 0 .98.98l2.047-.848a2.75 2.75 0 0 0 .892-.596l4.261-4.262a1.75 1.75 0 0 0 0-2.474Z"
-                              ></path>
-                              <path
-                                d="M4.75 3.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h6.5c.69 0 1.25-.56 1.25-1.25V9A.75.75 0 0 1 14 9v2.25A2.75 2.75 0 0 1 11.25 14h-6.5A2.75 2.75 0 0 1 2 11.25v-6.5A2.75 2.75 0 0 1 4.75 2H7a.75.75 0 0 1 0 1.5H4.75Z"
-                              ></path>
+                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                              />
+                              <path d="m15 5 4 4" />
                             </svg>
                           </button>
                         </div>
@@ -665,20 +538,21 @@
                             "
                           >
                             <svg
-                              class="fi-icon fi-size-sm"
                               xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 16 16"
-                              fill="currentColor"
-                              aria-hidden="true"
-                              data-slot="icon"
-                              width="25px"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-pencil-icon lucide-pencil"
                             >
                               <path
-                                d="M13.488 2.513a1.75 1.75 0 0 0-2.475 0L6.75 6.774a2.75 2.75 0 0 0-.596.892l-.848 2.047a.75.75 0 0 0 .98.98l2.047-.848a2.75 2.75 0 0 0 .892-.596l4.261-4.262a1.75 1.75 0 0 0 0-2.474Z"
-                              ></path>
-                              <path
-                                d="M4.75 3.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h6.5c.69 0 1.25-.56 1.25-1.25V9A.75.75 0 0 1 14 9v2.25A2.75 2.75 0 0 1 11.25 14h-6.5A2.75 2.75 0 0 1 2 11.25v-6.5A2.75 2.75 0 0 1 4.75 2H7a.75.75 0 0 1 0 1.5H4.75Z"
-                              ></path>
+                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                              />
+                              <path d="m15 5 4 4" />
                             </svg>
                           </button>
                         </div>
@@ -709,20 +583,21 @@
                             "
                           >
                             <svg
-                              class="fi-icon fi-size-sm"
                               xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 16 16"
-                              fill="currentColor"
-                              aria-hidden="true"
-                              data-slot="icon"
-                              width="25px"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-pencil-icon lucide-pencil"
                             >
                               <path
-                                d="M13.488 2.513a1.75 1.75 0 0 0-2.475 0L6.75 6.774a2.75 2.75 0 0 0-.596.892l-.848 2.047a.75.75 0 0 0 .98.98l2.047-.848a2.75 2.75 0 0 0 .892-.596l4.261-4.262a1.75 1.75 0 0 0 0-2.474Z"
-                              ></path>
-                              <path
-                                d="M4.75 3.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h6.5c.69 0 1.25-.56 1.25-1.25V9A.75.75 0 0 1 14 9v2.25A2.75 2.75 0 0 1 11.25 14h-6.5A2.75 2.75 0 0 1 2 11.25v-6.5A2.75 2.75 0 0 1 4.75 2H7a.75.75 0 0 1 0 1.5H4.75Z"
-                              ></path>
+                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                              />
+                              <path d="m15 5 4 4" />
                             </svg>
                           </button>
                         </div>
@@ -753,20 +628,21 @@
                             "
                           >
                             <svg
-                              class="fi-icon fi-size-sm"
                               xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 16 16"
-                              fill="currentColor"
-                              aria-hidden="true"
-                              data-slot="icon"
-                              width="25px"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-pencil-icon lucide-pencil"
                             >
                               <path
-                                d="M13.488 2.513a1.75 1.75 0 0 0-2.475 0L6.75 6.774a2.75 2.75 0 0 0-.596.892l-.848 2.047a.75.75 0 0 0 .98.98l2.047-.848a2.75 2.75 0 0 0 .892-.596l4.261-4.262a1.75 1.75 0 0 0 0-2.474Z"
-                              ></path>
-                              <path
-                                d="M4.75 3.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h6.5c.69 0 1.25-.56 1.25-1.25V9A.75.75 0 0 1 14 9v2.25A2.75 2.75 0 0 1 11.25 14h-6.5A2.75 2.75 0 0 1 2 11.25v-6.5A2.75 2.75 0 0 1 4.75 2H7a.75.75 0 0 1 0 1.5H4.75Z"
-                              ></path>
+                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                              />
+                              <path d="m15 5 4 4" />
                             </svg>
                           </button>
                         </div>

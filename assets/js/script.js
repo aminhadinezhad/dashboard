@@ -1,27 +1,27 @@
 'use strict';
 
 const slidebar = document.querySelector('.sidebar-content');
-const offcanvas = document.querySelector('.offcanvas');
-const links = document.querySelectorAll('.nav-link');
+if (slidebar) {
+  slidebar.addEventListener('click', function (e) {
+    const clickedLink = e.target.closest('.nav-link');
+    if (!clickedLink) return;
 
-slidebar.addEventListener('click', function (e) {
-  const clickedLink = e.target.closest('.nav-link');
-
-  if (!clickedLink) return;
-
-  links.forEach(link => {
-    link.classList.remove('active');
+    document.querySelectorAll('.sidebar-content .nav-link').forEach(link => {
+      link.classList.remove('active');
+    });
+    clickedLink.classList.add('active');
   });
-  clickedLink.classList.add('active');
-});
+}
 
-offcanvas.addEventListener('click', function (e) {
-  const clickedLink = e.target.closest('.nav-link');
+const bottomBar = document.querySelector('.bottombar-nav');
+if (bottomBar) {
+  bottomBar.addEventListener('click', function (e) {
+    const clickedItem = e.target.closest('.bottom-nav-item');
+    if (!clickedItem) return;
 
-  if (!clickedLink) return;
-
-  links.forEach(link => {
-    link.classList.remove('active');
+    document.querySelectorAll('.bottom-nav-item').forEach(item => {
+      item.classList.remove('active');
+    });
+    clickedItem.classList.add('active');
   });
-  clickedLink.classList.add('active');
-});
+}
