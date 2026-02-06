@@ -39,7 +39,7 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  padding: 18px 0 24px 0;
+  padding: 16px 0 20px 0;
   text-decoration: none;
   background: none;
   border: none;
@@ -50,18 +50,13 @@
 }
 
 .bottom-nav-item span {
-  color: rgb(63, 63, 71);
+  color: rgb(159, 159, 169);
+  font-size: 14px;
 }
 
 .bottom-nav-item.active svg,
 .bottom-nav-item.active span {
   color: rgb(56, 134, 80);
-}
-
-.menu-title {
-  font-size: 12px;
-  letter-spacing: 1px;
-  font-weight: 600;
 }
 
 .nav-item svg {
@@ -89,10 +84,6 @@
 }
 
 @media (max-width: 991.98px) {
-  .sidebar-header {
-    display: none !important;
-  }
-
   .content {
     padding-bottom: 120px !important;
   }
