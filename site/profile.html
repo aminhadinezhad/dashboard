@@ -406,7 +406,7 @@
 
           <div class="col-lg-9">
             <div class="content py-3">
-              <div class="d-flex flex-column gap-4">
+              <div class="d-flex flex-column gap-4 px-3">
                 <div>
                   <span class="fw-bold" style="font-size: 18px"
                     >ویرایش پروفایل</span
@@ -444,417 +444,391 @@
                       </button>
                     </div>
                   </div>
-                  <div class="informations-wrapper">
-                    <div class="info bg-danger text-center" id="natural">
+                  <div
+                    class="informations-wrapper px-4 rounded-3"
+                    style="background-color: rgb(240, 245, 242)"
+                  >
+                    <div class="row info text-center" id="natural">
                       <div
-                        class="row px-4 rounded-3"
-                        style="background-color: rgb(240, 245, 242)"
+                        class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
                       >
-                        <div
-                          class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
-                        >
-                          <div class="d-flex flex-column align-items-start">
-                            <p
-                              class="m-0"
-                              style="color: rgb(95, 145, 108); font-weight: 500"
-                            >
-                              نام و نام خانوادگی
-                            </p>
-                            <p
-                              class="m-0 fw-bold"
-                              style="color: rgb(1, 46, 15)"
-                            >
-                              محمد امین هادی نژاد
-                            </p>
-                          </div>
-                          <button
-                            class="btn--show-modal"
-                            id="full-name"
-                            style="
-                              border: none;
-                              background-color: inherit;
-                              color: rgb(34, 120, 60);
-                            "
+                        <div class="d-flex flex-column align-items-start">
+                          <p
+                            class="m-0"
+                            style="color: rgb(95, 145, 108); font-weight: 500"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              class="lucide lucide-pencil-icon lucide-pencil"
-                            >
-                              <path
-                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                              />
-                              <path d="m15 5 4 4" />
-                            </svg>
-                          </button>
+                            نام و نام خانوادگی
+                          </p>
+                          <p class="m-0 fw-bold" style="color: rgb(1, 46, 15)">
+                            محمد امین هادی نژاد
+                          </p>
                         </div>
-                        <div
-                          class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
+                        <button
+                          class="btn--show-modal"
+                          id="full-name"
+                          style="
+                            border: none;
+                            background-color: inherit;
+                            color: rgb(34, 120, 60);
+                          "
                         >
-                          <div class="d-flex flex-column align-items-start">
-                            <p
-                              class="m-0"
-                              style="color: rgb(95, 145, 108); font-weight: 500"
-                            >
-                              پست الکترونیکی
-                            </p>
-                            <p
-                              class="m-0 fw-bold email-text"
-                              style="color: rgb(1, 46, 15)"
-                            >
-                              -
-                            </p>
-                          </div>
-                          <button
-                            class="btn--show-modal"
-                            id="email"
-                            style="
-                              border: none;
-                              background-color: inherit;
-                              color: rgb(34, 120, 60);
-                            "
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-pencil-icon lucide-pencil"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              class="lucide lucide-pencil-icon lucide-pencil"
-                            >
-                              <path
-                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                              />
-                              <path d="m15 5 4 4" />
-                            </svg>
-                          </button>
+                            <path
+                              d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                            />
+                            <path d="m15 5 4 4" />
+                          </svg>
+                        </button>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
+                      >
+                        <div class="d-flex flex-column align-items-start">
+                          <p
+                            class="m-0"
+                            style="color: rgb(95, 145, 108); font-weight: 500"
+                          >
+                            پست الکترونیکی
+                          </p>
+                          <p
+                            class="m-0 fw-bold email-text"
+                            style="color: rgb(1, 46, 15)"
+                          >
+                            -
+                          </p>
                         </div>
-                        <div
-                          class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
+                        <button
+                          class="btn--show-modal"
+                          id="email"
+                          style="
+                            border: none;
+                            background-color: inherit;
+                            color: rgb(34, 120, 60);
+                          "
                         >
-                          <div class="d-flex flex-column align-items-start">
-                            <p
-                              class="m-0"
-                              style="color: rgb(95, 145, 108); font-weight: 500"
-                            >
-                              شماره موبایل
-                            </p>
-                            <p
-                              class="m-0 fw-bold"
-                              style="color: rgb(1, 46, 15)"
-                            >
-                              09197757693
-                            </p>
-                          </div>
-                          <button
-                            class="btn--show-modal"
-                            id="mobile-number"
-                            style="
-                              border: none;
-                              background-color: inherit;
-                              color: rgb(34, 120, 60);
-                            "
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-pencil-icon lucide-pencil"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              class="lucide lucide-pencil-icon lucide-pencil"
-                            >
-                              <path
-                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                              />
-                              <path d="m15 5 4 4" />
-                            </svg>
-                          </button>
+                            <path
+                              d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                            />
+                            <path d="m15 5 4 4" />
+                          </svg>
+                        </button>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
+                      >
+                        <div class="d-flex flex-column align-items-start">
+                          <p
+                            class="m-0"
+                            style="color: rgb(95, 145, 108); font-weight: 500"
+                          >
+                            شماره موبایل
+                          </p>
+                          <p class="m-0 fw-bold" style="color: rgb(1, 46, 15)">
+                            09197757693
+                          </p>
                         </div>
-                        <div
-                          class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
+                        <button
+                          class="btn--show-modal"
+                          id="mobile-number"
+                          style="
+                            border: none;
+                            background-color: inherit;
+                            color: rgb(34, 120, 60);
+                          "
                         >
-                          <div class="d-flex flex-column align-items-start">
-                            <p
-                              class="m-0"
-                              style="color: rgb(95, 145, 108); font-weight: 500"
-                            >
-                              کد ملی
-                            </p>
-                            <p
-                              class="m-0 fw-bold"
-                              style="color: rgb(1, 46, 15)"
-                            >
-                              0023839236
-                            </p>
-                          </div>
-                          <button
-                            class="btn--show-modal"
-                            id="national-id"
-                            style="
-                              border: none;
-                              background-color: inherit;
-                              color: rgb(34, 120, 60);
-                            "
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-pencil-icon lucide-pencil"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              class="lucide lucide-pencil-icon lucide-pencil"
-                            >
-                              <path
-                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                              />
-                              <path d="m15 5 4 4" />
-                            </svg>
-                          </button>
+                            <path
+                              d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                            />
+                            <path d="m15 5 4 4" />
+                          </svg>
+                        </button>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
+                      >
+                        <div class="d-flex flex-column align-items-start">
+                          <p
+                            class="m-0"
+                            style="color: rgb(95, 145, 108); font-weight: 500"
+                          >
+                            کد ملی
+                          </p>
+                          <p class="m-0 fw-bold" style="color: rgb(1, 46, 15)">
+                            0023839236
+                          </p>
                         </div>
-                        <div
-                          class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
+                        <button
+                          class="btn--show-modal"
+                          id="national-id"
+                          style="
+                            border: none;
+                            background-color: inherit;
+                            color: rgb(34, 120, 60);
+                          "
                         >
-                          <div class="d-flex flex-column align-items-start">
-                            <p
-                              class="m-0"
-                              style="color: rgb(95, 145, 108); font-weight: 500"
-                            >
-                              نشانی
-                            </p>
-                            <p
-                              class="m-0 fw-bold"
-                              style="color: rgb(1, 46, 15)"
-                            >
-                              شهران جنوبی کوچه قائم آل محمد پلاک 15 واحد 3
-                            </p>
-                          </div>
-                          <button
-                            class="btn--show-modal"
-                            id="location"
-                            style="
-                              border: none;
-                              background-color: inherit;
-                              color: rgb(34, 120, 60);
-                            "
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-pencil-icon lucide-pencil"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              class="lucide lucide-pencil-icon lucide-pencil"
-                            >
-                              <path
-                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                              />
-                              <path d="m15 5 4 4" />
-                            </svg>
-                          </button>
+                            <path
+                              d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                            />
+                            <path d="m15 5 4 4" />
+                          </svg>
+                        </button>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
+                      >
+                        <div class="d-flex flex-column align-items-start">
+                          <p
+                            class="m-0"
+                            style="color: rgb(95, 145, 108); font-weight: 500"
+                          >
+                            نشانی
+                          </p>
+                          <p class="m-0 fw-bold" style="color: rgb(1, 46, 15)">
+                            شهران جنوبی کوچه قائم آل محمد پلاک 15 واحد 3
+                          </p>
                         </div>
-                        <div
-                          class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
+                        <button
+                          class="btn--show-modal"
+                          id="location"
+                          style="
+                            border: none;
+                            background-color: inherit;
+                            color: rgb(34, 120, 60);
+                          "
                         >
-                          <div class="d-flex flex-column align-items-start">
-                            <p
-                              class="m-0"
-                              style="color: rgb(95, 145, 108); font-weight: 500"
-                            >
-                              کد پستی
-                            </p>
-                            <p
-                              class="m-0 fw-bold"
-                              style="color: rgb(1, 46, 15)"
-                            >
-                              1474944148
-                            </p>
-                          </div>
-                          <button
-                            class="btn--show-modal"
-                            id="postal-code"
-                            style="
-                              border: none;
-                              background-color: inherit;
-                              color: rgb(34, 120, 60);
-                            "
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-pencil-icon lucide-pencil"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              class="lucide lucide-pencil-icon lucide-pencil"
-                            >
-                              <path
-                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                              />
-                              <path d="m15 5 4 4" />
-                            </svg>
-                          </button>
+                            <path
+                              d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                            />
+                            <path d="m15 5 4 4" />
+                          </svg>
+                        </button>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
+                      >
+                        <div class="d-flex flex-column align-items-start">
+                          <p
+                            class="m-0"
+                            style="color: rgb(95, 145, 108); font-weight: 500"
+                          >
+                            کد پستی
+                          </p>
+                          <p class="m-0 fw-bold" style="color: rgb(1, 46, 15)">
+                            1474944148
+                          </p>
                         </div>
-                        <div
-                          class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
+                        <button
+                          class="btn--show-modal"
+                          id="postal-code"
+                          style="
+                            border: none;
+                            background-color: inherit;
+                            color: rgb(34, 120, 60);
+                          "
                         >
-                          <div class="d-flex flex-column align-items-start">
-                            <p
-                              class="m-0"
-                              style="color: rgb(95, 145, 108); font-weight: 500"
-                            >
-                              شغل
-                            </p>
-                            <p
-                              class="m-0 fw-bold"
-                              style="color: rgb(1, 46, 15)"
-                            >
-                              -
-                            </p>
-                          </div>
-                          <button
-                            class="btn--show-modal"
-                            id="job"
-                            style="
-                              border: none;
-                              background-color: inherit;
-                              color: rgb(34, 120, 60);
-                            "
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-pencil-icon lucide-pencil"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              class="lucide lucide-pencil-icon lucide-pencil"
-                            >
-                              <path
-                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                              />
-                              <path d="m15 5 4 4" />
-                            </svg>
-                          </button>
+                            <path
+                              d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                            />
+                            <path d="m15 5 4 4" />
+                          </svg>
+                        </button>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
+                      >
+                        <div class="d-flex flex-column align-items-start">
+                          <p
+                            class="m-0"
+                            style="color: rgb(95, 145, 108); font-weight: 500"
+                          >
+                            شغل
+                          </p>
+                          <p class="m-0 fw-bold" style="color: rgb(1, 46, 15)">
+                            -
+                          </p>
                         </div>
-                        <div
-                          class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
+                        <button
+                          class="btn--show-modal"
+                          id="job"
+                          style="
+                            border: none;
+                            background-color: inherit;
+                            color: rgb(34, 120, 60);
+                          "
                         >
-                          <div class="d-flex flex-column align-items-start">
-                            <p
-                              class="m-0"
-                              style="color: rgb(95, 145, 108); font-weight: 500"
-                            >
-                              تاریخ تولد
-                            </p>
-                            <p
-                              class="m-0 fw-bold"
-                              style="color: rgb(1, 46, 15)"
-                            >
-                              -
-                            </p>
-                          </div>
-                          <button
-                            class="btn--show-modal"
-                            id="birthdate"
-                            style="
-                              border: none;
-                              background-color: inherit;
-                              color: rgb(34, 120, 60);
-                            "
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-pencil-icon lucide-pencil"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              class="lucide lucide-pencil-icon lucide-pencil"
-                            >
-                              <path
-                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                              />
-                              <path d="m15 5 4 4" />
-                            </svg>
-                          </button>
+                            <path
+                              d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                            />
+                            <path d="m15 5 4 4" />
+                          </svg>
+                        </button>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
+                      >
+                        <div class="d-flex flex-column align-items-start">
+                          <p
+                            class="m-0"
+                            style="color: rgb(95, 145, 108); font-weight: 500"
+                          >
+                            تاریخ تولد
+                          </p>
+                          <p class="m-0 fw-bold" style="color: rgb(1, 46, 15)">
+                            -
+                          </p>
                         </div>
-                        <div
-                          class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
+                        <button
+                          class="btn--show-modal"
+                          id="birthdate"
+                          style="
+                            border: none;
+                            background-color: inherit;
+                            color: rgb(34, 120, 60);
+                          "
                         >
-                          <div class="d-flex flex-column align-items-start">
-                            <p
-                              class="m-0"
-                              style="color: rgb(95, 145, 108); font-weight: 500"
-                            >
-                              رمز عبور
-                            </p>
-                            <p
-                              class="m-0 fw-bold"
-                              style="color: rgb(1, 46, 15)"
-                            >
-                              ******
-                            </p>
-                          </div>
-                          <button
-                            class="btn--show-modal"
-                            id="password"
-                            style="
-                              border: none;
-                              background-color: inherit;
-                              color: rgb(34, 120, 60);
-                            "
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-pencil-icon lucide-pencil"
                           >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              stroke="currentColor"
-                              stroke-width="1.5"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              class="lucide lucide-pencil-icon lucide-pencil"
-                            >
-                              <path
-                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                              />
-                              <path d="m15 5 4 4" />
-                            </svg>
-                          </button>
+                            <path
+                              d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                            />
+                            <path d="m15 5 4 4" />
+                          </svg>
+                        </button>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
+                      >
+                        <div class="d-flex flex-column align-items-start">
+                          <p
+                            class="m-0"
+                            style="color: rgb(95, 145, 108); font-weight: 500"
+                          >
+                            رمز عبور
+                          </p>
+                          <p class="m-0 fw-bold" style="color: rgb(1, 46, 15)">
+                            ******
+                          </p>
                         </div>
+                        <button
+                          class="btn--show-modal"
+                          id="password"
+                          style="
+                            border: none;
+                            background-color: inherit;
+                            color: rgb(34, 120, 60);
+                          "
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-pencil-icon lucide-pencil"
+                          >
+                            <path
+                              d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                            />
+                            <path d="m15 5 4 4" />
+                          </svg>
+                        </button>
                       </div>
                     </div>
                     <div class="info d-none" id="legal"></div>
