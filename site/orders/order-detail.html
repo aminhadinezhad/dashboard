@@ -7,6 +7,26 @@
     <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../assets/css/style.css" />
   </head>
+
+  <style>
+    .transaction-btn.active .lucide-chevron-down {
+      transform: rotate(180deg);
+    }
+
+    @media (max-width: 991.98px) {
+      .order-info {
+        justify-content: space-between !important;
+      }
+
+      .border-lg-none {
+        border: none !important;
+      }
+
+      .display-lg-none {
+        display: none !important;
+      }
+    }
+  </style>
   <body>
     <div class="pt-4 pb-4">
       <div class="container-lg">
@@ -255,7 +275,7 @@
 
           <div class="col-lg-9">
             <div class="content py-3">
-              <div class="d-flex flex-column gap-4">
+              <div class="d-flex flex-column gap-4 px-1">
                 <div
                   class="d-flex align-items-center fw-semibold gap-3 pb-3 border-bottom"
                 >
@@ -278,8 +298,8 @@
                   <span>جزئیات سفارش</span>
                 </div>
 
-                <div class="">
-                  <div class="d-flex align-items-center fw-semibold gap-1 mb-2">
+                <div class="" style="font-size: 14px">
+                  <div class="d-flex align-items-center fw-semibold gap-2 mb-2">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -299,27 +319,456 @@
                         d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z"
                       />
                     </svg>
-                    <span style="font-size: 14px">مشخصات سفارش</span>
+                    <span>مشخصات سفارش</span>
                   </div>
                   <div class="p-3 border rounded-3">
-                    <div class="d-flex gap-2 mb-3" style="font-size: 14px">
+                    <div class="order-info d-flex gap-2 mb-3">
                       <p class="mb-0" style="color: rgb(102, 102, 102)">
                         کد پیگیری سفارش:
                       </p>
                       <p class="mb-0">2885</p>
                     </div>
-                    <div class="d-flex gap-2 mb-3" style="font-size: 14px">
+                    <div class="order-info d-flex gap-2 mb-3">
                       <p class="mb-0" style="color: rgb(102, 102, 102)">
                         تاریخ ثبت سفارش:
                       </p>
-                      <p class="mb-0">دوشنبه ۱۳:۲۹:۱۰ ۱۴۰۴/۰۸/۰۵</p>
+                      <p class="mb-0">دوشنبه 13:29:10 1404/08/05</p>
+                    </div>
+                    <div class="pt-4 border-top">
+                      <div class="d-lg-flex gap-lg-5">
+                        <div class="order-info d-flex mb-4">
+                          <p class="mb-0" style="color: rgb(102, 102, 102)">
+                            مبلغ کل:
+                          </p>
+                          <div class="d-flex">
+                            <p class="mb-0 me-2">369,140</p>
+                            <span class="me-1" style="color: rgb(102, 102, 102)"
+                              >تومان</span
+                            >
+                          </div>
+                        </div>
+                        <div class="order-info d-flex mb-4">
+                          <p
+                            class="mb-0 pe-lg-4 border-end border-lg-none"
+                            style="color: rgb(102, 102, 102)"
+                          >
+                            هزینه بسته بندی و ارسال:
+                          </p>
+                          <div class="d-flex">
+                            <p class="mb-0 me-2">350,000</p>
+                            <span class="me-1" style="color: rgb(102, 102, 102)"
+                              >تومان</span
+                            >
+                          </div>
+                        </div>
+                        <div class="order-info d-flex mb-4">
+                          <p
+                            class="mb-0 pe-lg-4 border-end border-lg-none"
+                            style="color: rgb(95, 145, 108)"
+                          >
+                            مبلغ تخفیف:
+                          </p>
+                          <div class="d-flex">
+                            <p
+                              class="mb-0 me-2"
+                              style="color: rgb(95, 145, 108)"
+                            >
+                              0
+                            </p>
+                            <span class="me-1" style="color: rgb(102, 102, 102)"
+                              >تومان</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="order-info d-flex">
+                        <p class="mb-0" style="color: rgb(102, 102, 102)">
+                          مبلغ پرداخت شده:
+                        </p>
+                        <div class="d-flex">
+                          <p class="mb-0 me-2">369,140</p>
+                          <span class="me-1" style="color: rgb(102, 102, 102)"
+                            >تومان</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-lg-none">
+                      <div class="pt-4">
+                        <div
+                          class="d-flex justify-content-center border-top pt-3"
+                        >
+                          <button
+                            class="transaction-btn d-flex align-items-center fw-semibold gap-2"
+                            style="
+                              color: rgb(95, 145, 108);
+                              border: none;
+                              background-color: transparent;
+                            "
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-chevron-down-icon lucide-chevron-down"
+                            >
+                              <path d="m6 9 6 6 6-6" />
+                            </svg>
+                            <span>تاریخچه تراکنش ها</span>
+                          </button>
+                        </div>
+                        <div
+                          class="transaction d-lg-flex gap-lg-5 mt-3 pt-3 d-none border-top"
+                        >
+                          <div class="order-info d-flex mb-4">
+                            <p class="mb-0" style="color: rgb(102, 102, 102)">
+                              تاریخ:
+                            </p>
+                            <div class="d-flex">
+                              <p class="mb-0 me-2">
+                                دوشنبه 13:29:10 1404/08/05
+                              </p>
+                            </div>
+                          </div>
+                          <div class="order-info d-flex mb-4">
+                            <p
+                              class="mb-0 pe-lg-4 border-end border-lg-none"
+                              style="color: rgb(102, 102, 102)"
+                            >
+                              وضعیت:
+                            </p>
+                            <div class="d-flex">
+                              <p class="mb-0 me-2">موفق</p>
+                            </div>
+                          </div>
+                          <div class="order-info d-flex mb-4">
+                            <p
+                              class="mb-0 pe-lg-4 border-end border-lg-none"
+                              style="color: rgb(102, 102, 102)"
+                            >
+                              مبلغ:
+                            </p>
+                            <div class="d-flex">
+                              <p class="mb-0 me-2">369,140</p>
+                              <span
+                                class="me-1"
+                                style="color: rgb(102, 102, 102)"
+                                >تومان</span
+                              >
+                            </div>
+                          </div>
+                          <div class="order-info d-flex mb-4">
+                            <p
+                              class="mb-0 pe-lg-4 border-end border-lg-none"
+                              style="color: rgb(102, 102, 102)"
+                            >
+                              کد پیگیری:
+                            </p>
+                            <div class="d-flex">
+                              <p class="mb-0 me-2">842975</p>
+                            </div>
+                          </div>
+                          <div class="order-info d-flex mb-4">
+                            <p
+                              class="mb-0 pe-lg-4 border-end border-lg-none"
+                              style="color: rgb(102, 102, 102)"
+                            >
+                              نوع پرداخت:
+                            </p>
+                            <div class="d-flex">
+                              <p class="mb-0 me-2">پرداخت آنلاین</p>
+                            </div>
+                          </div>
+                          <div class="order-info d-flex">
+                            <p
+                              class="mb-0 pe-lg-4 border-end border-lg-none"
+                              style="color: rgb(102, 102, 102)"
+                            >
+                              توضیحات:
+                            </p>
+                            <div class="d-flex">
+                              <p class="mb-0 me-2">پرداخت موفق</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <div class="display-lg-none" style="font-size: 14px">
+                  <div class="d-flex align-items-center fw-semibold gap-2 mb-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="rgb(95, 145, 108)"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-scroll-text-icon lucide-scroll-text"
+                    >
+                      <path d="M15 12h-5" />
+                      <path d="M15 8h-5" />
+                      <path d="M19 17V5a2 2 0 0 0-2-2H4" />
+                      <path
+                        d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3"
+                      />
+                    </svg>
+                    <span>تاریخچه تراکنش ها</span>
+                  </div>
+                  <div class="border rounded-3">
+                    <table
+                      class="text-center w-100"
+                      style="color: rgb(56, 134, 80)"
+                    >
+                      <thead class="">
+                        <tr class="">
+                          <th class="px-1 py-2 border-bottom border-start">
+                            تاریخ
+                          </th>
+                          <th class="px-1 py-2 border-bottom border-start">
+                            وضعیت
+                          </th>
+                          <th class="px-1 py-2 border-bottom border-start">
+                            مبلغ
+                          </th>
+                          <th class="px-1 py-2 border-bottom border-start">
+                            روش پرداخت
+                          </th>
+                          <th class="px-1 py-2 border-bottom border-start">
+                            کد پیگیری
+                          </th>
+                          <th class="px-1 py-2 border-bottom">توضیحات</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="px-1 py-2 border-start">
+                            دوشنبه 13:29:10 1404/08/05
+                          </td>
+                          <td class="px-1 py-2 p-1 border-start">موفق</td>
+                          <td class="px-1 py-2 border-start">369,140 تومان</td>
+                          <td class="px-1 py-2 border-start">پرداخت آنلاین</td>
+                          <td class="px-1 py-2 border-start">842975</td>
+                          <td class="px-1 py-2">پرداخت موفق</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="" style="font-size: 14px">
+                  <div class="d-flex align-items-center fw-semibold gap-2 mb-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="rgb(95, 145, 108)"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-map-pin-icon lucide-map-pin"
+                    >
+                      <path
+                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                      />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span>مشخصات گیرنده و مقصد</span>
+                  </div>
+                  <div class="p-3 border rounded-3">
+                    <div class="d-flex gap-5">
+                      <div class="d-flex mb-4">
+                        <p class="mb-0" style="color: rgb(102, 102, 102)">
+                          شماره تماس:
+                        </p>
+                        <div class="d-flex">
+                          <p class="mb-0 me-2">09197757693</p>
+                        </div>
+                      </div>
+                      <div class="d-flex mb-4">
+                        <p
+                          class="mb-0 pe-4 border-end"
+                          style="color: rgb(102, 102, 102)"
+                        >
+                          تحویل گیرنده:
+                        </p>
+                        <div class="d-flex">
+                          <p class="mb-0 me-2">محمد امین هادی نژاد</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="d-flex">
+                      <p class="mb-0" style="color: rgb(102, 102, 102)">
+                        ارسال به:
+                      </p>
+                      <div class="d-flex">
+                        <p class="mb-0 me-2">
+                          تهران / تهران / شهران جنوبی کوچه قائم آل محمد پلاک 15
+                          واحد 3
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <span class="border"></span>
+                <div class="" style="font-size: 14px">
+                  <div
+                    class="d-flex align-items-center justify-content-between mb-2"
+                  >
+                    <span>مرسوله 1 از 1</span>
+                    <a
+                      href="https://www.taminfalat.com/moderator/order/print/2885"
+                      class="text-decoration-none text-primary"
+                      >دریافت فاکتور</a
+                    >
+                  </div>
+                  <div>
+                    <div
+                      class="d-flex align-items-center justify-content-between mb-2"
+                    >
+                      <div
+                        class="d-flex align-items-center fw-semibold gap-2"
+                        style="color: rgb(95, 145, 108)"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-truck-icon lucide-truck"
+                        >
+                          <path
+                            d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"
+                          />
+                          <path d="M15 18H9" />
+                          <path
+                            d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"
+                          />
+                          <circle cx="17" cy="18" r="2" />
+                          <circle cx="7" cy="18" r="2" />
+                        </svg>
+                        <span>ارسال عادی تامین فلات</span>
+                      </div>
+                      <span class="text-muted">1 کالا</span>
+                    </div>
 
-                <div></div>
+                    <div class="border rounded-4 overflow-hidden">
+                      <div
+                        class="p-3 border-bottom"
+                        style="background-color: rgba(102, 102, 102, 0.1)"
+                      >
+                        <div class="row gap-md-2">
+                          <div class="col-md-2 col">
+                            <div class="d-flex flex-column gap-1">
+                              <span
+                                style="
+                                  color: rgb(102, 102, 102);
+                                  font-size: 14px;
+                                "
+                                >شماره سفارش</span
+                              >
+                              <span>2885</span>
+                            </div>
+                          </div>
+                          <div class="col-md-2 col">
+                            <div class="d-flex flex-column gap-1">
+                              <span
+                                style="
+                                  color: rgb(102, 102, 102);
+                                  font-size: 14px;
+                                "
+                                >ارجاع بانک</span
+                              >
+                              <span>-</span>
+                            </div>
+                          </div>
+                          <div class="col-md-2 col">
+                            <div class="d-flex flex-column gap-1">
+                              <span
+                                style="
+                                  color: rgb(102, 102, 102);
+                                  font-size: 14px;
+                                "
+                                >تاریخ</span
+                              >
+                              <span>1404/08/05</span>
+                            </div>
+                          </div>
+                          <div class="col-md-2 col">
+                            <div class="d-flex flex-column gap-1">
+                              <span
+                                style="
+                                  color: rgb(102, 102, 102);
+                                  font-size: 14px;
+                                "
+                                >جمع کل</span
+                              >
+                              <span>369,140 تومان</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="p-3">
+                        <div class="d-flex flex-column gap-3">
+                          <div
+                            class="d-flex flex-column flex-sm-row border rounded-4 p-2"
+                          >
+                            <div class="d-flex align-items-center w-100 gap-2">
+                              <a
+                                href="https://www.taminfalat.com/product/detail/%D8%B3%D8%A7%DA%A9-%D8%AF%D8%B3%D8%AA%DB%8C-%D8%AA%D8%A7%D9%85%DB%8C%D9%86-%D9%81%D9%84%D8%A7%D8%AA"
+                              >
+                                <div class="border rounded-4 overflow-hidden">
+                                  <img
+                                    src="../../assets/images/sNveEorBmyfFFXMcANJO.jpg"
+                                    alt=""
+                                    width="64x"
+                                  />
+                                </div>
+                              </a>
+                              <a
+                                href="https://www.taminfalat.com/product/detail/%D8%B3%D8%A7%DA%A9-%D8%AF%D8%B3%D8%AA%DB%8C-%D8%AA%D8%A7%D9%85%DB%8C%D9%86-%D9%81%D9%84%D8%A7%D8%AA"
+                                class="text-decoration-none text-dark"
+                              >
+                                ساک دستی تامین فلات
+                              </a>
+                            </div>
 
-                <div></div>
+                            <div
+                              class="d-flex justify-content-end w-100 align-items-center"
+                            >
+                              <div class="d-flex flex-column align-items-end">
+                                <span style="font-size: 14px">1 x</span>
+                                <span>17,400 تومان</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="d-flex justify-content-between align-items-center p-2 rounded-3"
+                            style="background-color: rgba(102, 102, 102, 0.05)"
+                          >
+                            <span> هزینه ارسال </span>
+                            <span>350,000 تومان</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -329,5 +778,16 @@
 
     <script src="../../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../../assets/js/script.js"></script>
+    <script>
+      'use strict';
+
+      const transactionBtn = document.querySelector('.transaction-btn');
+      const transaction = document.querySelector('.transaction');
+
+      transactionBtn.addEventListener('click', function () {
+        transaction.classList.toggle('d-none');
+        transactionBtn.classList.toggle('active');
+      });
+    </script>
   </body>
 </html>
