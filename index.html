@@ -17,18 +17,31 @@
       gap: 48px;
     }
 
-    .info-items {
+    .h-line--person {
       position: relative;
     }
 
-    .info-items::before {
+    .h-line--person::before {
       content: '';
       background-color: rgb(240, 245, 242);
-      width: 120px;
+      width: 110px;
       height: 4px;
+      right: 50%;
       position: absolute;
-      top: 50%;
-      right: -10%;
+      z-index: -1000;
+    }
+
+    .h-line--order {
+      position: relative;
+    }
+
+    .h-line--order::before {
+      content: '';
+      background-color: rgb(240, 245, 242);
+      width: 110px;
+      height: 4px;
+      right: 50%;
+      position: absolute;
       z-index: -1000;
     }
 
@@ -59,7 +72,7 @@
       width: 120px;
       height: 4px;
       position: absolute;
-      top: -50%;
+      top: 125%;
       transform: rotate(90deg);
       z-index: -1000;
     }
@@ -68,14 +81,17 @@
       background-color: rgb(230, 235, 232);
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 576px) {
       .info-wrapper {
         gap: 48px !important;
       }
 
       .info {
+        gap: 48px !important;
+      }
+
+      .info--person {
         flex-direction: column !important;
-        gap: 64px !important;
       }
 
       .info-link {
@@ -83,14 +99,15 @@
         transform: translate(-50%) !important;
       }
 
-      .info-items::before {
-        right: 50%;
-        top: -10%;
-        transform: translate(50%) rotate(90deg) !important;
+      .h-line--person::before {
+        transform: rotate(90deg);
+        right: 0%;
+        top: 125%;
       }
 
       .v-line::after {
-        display: none !important;
+        width: 220px;
+        top: 150%;
       }
     }
   </style>
@@ -360,10 +377,10 @@
                     >مشخصات فردی</span
                   >
                 </div>
-                <div class="info d-flex align-items-center">
+                <div class="info info--person d-flex align-items-center">
                   <div class="d-flex align-items-center justify-content-center">
                     <span
-                      class="rounded-circle d-flex align-items-center justify-content-center"
+                      class="h-line--person rounded-circle d-flex align-items-center justify-content-center"
                       style="
                         width: 110px;
                         height: 110px;
@@ -401,7 +418,7 @@
                     >
                       <div class="col-md-4 col-sm-6 col-12">
                         <div
-                          class="d-flex flex-column align-items-center justify-content-center mt-2 mb-2"
+                          class="d-flex flex-column align-items-center justify-content-center mt-1 mb-1"
                         >
                           <p
                             class="m-0"
@@ -416,7 +433,7 @@
                       </div>
                       <div class="col-md-4 col-sm-6 col-12">
                         <div
-                          class="d-flex flex-column align-items-center justify-content-center mt-2 mb-2"
+                          class="d-flex flex-column align-items-center justify-content-center mt-1 mb-1"
                         >
                           <p
                             class="m-0"
@@ -437,7 +454,7 @@
                       </div>
                       <div class="col-md-4 col-sm-6 col-12">
                         <div
-                          class="d-flex flex-column align-items-center justify-content-center mt-2 mb-2"
+                          class="d-flex flex-column align-items-center justify-content-center mt-1 mb-1"
                         >
                           <p
                             class="m-0"
@@ -452,7 +469,7 @@
                       </div>
                       <div class="col-md-4 col-sm-6 col-12">
                         <div
-                          class="d-flex flex-column align-items-center justify-content-center mt-2 mb-2"
+                          class="d-flex flex-column align-items-center justify-content-center mt-1 mb-1"
                         >
                           <p
                             class="m-0"
@@ -467,7 +484,7 @@
                       </div>
                       <div class="col-md-4 col-sm-6 col-12">
                         <div
-                          class="d-flex flex-column align-items-center justify-content-center mt-2 mb-2"
+                          class="d-flex flex-column align-items-center justify-content-center mt-1 mb-1"
                         >
                           <p
                             class="m-0"
@@ -482,7 +499,7 @@
                       </div>
                       <div class="col-md-4 col-sm-6 col-12">
                         <div
-                          class="d-flex flex-column align-items-center justify-content-center mt-2 mb-4"
+                          class="d-flex flex-column align-items-center justify-content-center mt-1 mb-4"
                         >
                           <p
                             class="m-0"
@@ -527,13 +544,13 @@
                   >
                 </div>
                 <div class="pb-4">
-                  <div class="mb-5">
-                    <div class="info d-flex align-items-center">
+                  <div class="mb-4">
+                    <div class="info info--order d-flex align-items-center">
                       <div
                         class="d-flex align-items-center justify-content-center"
                       >
                         <span
-                          class="rounded-circle d-flex align-items-center justify-content-center"
+                          class="h-line--order v-line rounded-circle d-flex align-items-center justify-content-center"
                           style="
                             width: 80px;
                             height: 80px;
@@ -553,7 +570,7 @@
                         >
                           <div class="col-sm-3 col-12">
                             <div
-                              class="d-flex align-items-center justify-content-center gap-2 mt-2 mb-2"
+                              class="d-flex align-items-center justify-content-center gap-2 mt-1 mb-1"
                             >
                               <p
                                 class="mb-0"
@@ -574,7 +591,7 @@
                           </div>
                           <div class="col-sm-3 col-12">
                             <div
-                              class="d-flex align-items-center justify-content-center gap-2 mt-2 mb-2"
+                              class="d-flex align-items-center justify-content-center gap-2 mt-1 mb-1"
                             >
                               <p
                                 class="mb-0"
@@ -595,7 +612,7 @@
                           </div>
                           <div class="col-sm-3 col-12">
                             <div
-                              class="d-flex align-items-center justify-content-center gap-2 mt-2 mb-2"
+                              class="d-flex align-items-center justify-content-center gap-2 mt-1 mb-1"
                             >
                               <p
                                 class="mb-0"
@@ -616,7 +633,7 @@
                           </div>
                           <div class="col-sm-3 col-12">
                             <div
-                              class="d-flex align-items-center justify-content-center gap-2 mt-2 mb-2"
+                              class="d-flex align-items-center justify-content-center gap-2 mt-1 mb-1"
                             >
                               <p
                                 class="mb-0"
@@ -653,13 +670,13 @@
                       </div>
                     </div>
                   </div>
-                  <div class="mb-5">
-                    <div class="info d-flex align-items-center">
+                  <div class="mb-4">
+                    <div class="info info--order d-flex align-items-center">
                       <div
                         class="d-flex align-items-center justify-content-center"
                       >
                         <span
-                          class="v-line rounded-circle d-flex align-items-center justify-content-center"
+                          class="h-line--order v-line rounded-circle d-flex align-items-center justify-content-center"
                           style="
                             width: 80px;
                             height: 80px;
@@ -679,7 +696,7 @@
                         >
                           <div class="col-sm-3 col-12">
                             <div
-                              class="d-flex align-items-center justify-content-center gap-2 mt-2 mb-2"
+                              class="d-flex align-items-center justify-content-center gap-2 mt-1 mb-1"
                             >
                               <p
                                 class="mb-0"
@@ -700,7 +717,7 @@
                           </div>
                           <div class="col-sm-3 col-12">
                             <div
-                              class="d-flex align-items-center justify-content-center gap-2 mt-2 mb-2"
+                              class="d-flex align-items-center justify-content-center gap-2 mt-1 mb-1"
                             >
                               <p
                                 class="mb-0"
@@ -721,7 +738,7 @@
                           </div>
                           <div class="col-sm-3 col-12">
                             <div
-                              class="d-flex align-items-center justify-content-center gap-2 mt-2 mb-2"
+                              class="d-flex align-items-center justify-content-center gap-2 mt-1 mb-1"
                             >
                               <p
                                 class="mb-0"
@@ -742,7 +759,7 @@
                           </div>
                           <div class="col-sm-3 col-12">
                             <div
-                              class="d-flex align-items-center justify-content-center gap-2 mt-2 mb-2"
+                              class="d-flex align-items-center justify-content-center gap-2 mt-1 mb-1"
                             >
                               <p
                                 class="mb-0"
@@ -784,7 +801,7 @@
                       class="d-flex align-items-center justify-content-center"
                     >
                       <span
-                        class="v-line rounded-circle d-flex align-items-center justify-content-center"
+                        class="rounded-circle d-flex align-items-center justify-content-center"
                         style="
                           width: 80px;
                           height: 80px;
