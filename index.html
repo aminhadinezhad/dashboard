@@ -32,6 +32,23 @@
       z-index: -1000;
     }
 
+    .info-link {
+      position: absolute;
+      text-decoration: none;
+      border-radius: 6px;
+      background: linear-gradient(
+        135deg,
+        rgb(20, 95, 45) 0%,
+        rgb(34, 120, 60) 35%,
+        rgb(45, 135, 72) 65%,
+        rgb(56, 143, 80) 100%
+      );
+      color: rgb(255, 255, 255);
+      padding: 8px 24px;
+      bottom: -20px;
+      left: 20px;
+    }
+
     .v-line {
       position: relative;
     }
@@ -465,7 +482,7 @@
                       </div>
                       <div class="col-md-4 col-sm-6 col-12">
                         <div
-                          class="d-flex flex-column align-items-center justify-content-center mt-2 mb-2"
+                          class="d-flex flex-column align-items-center justify-content-center mt-2 mb-4"
                         >
                           <p
                             class="m-0"
@@ -479,24 +496,7 @@
                         </div>
                       </div>
                     </div>
-                    <a
-                      href="site/profile.html"
-                      class="info-link text-decoration-none rounded-2 position-absolute"
-                      style="
-                        background: linear-gradient(
-                          135deg,
-                          rgb(20, 95, 45) 0%,
-                          rgb(34, 120, 60) 35%,
-                          rgb(45, 135, 72) 65%,
-                          rgb(56, 143, 80) 100%
-                        );
-                        opacity: 1;
-                        color: rgb(255, 255, 255);
-                        padding: 8px 24px;
-                        bottom: -20px;
-                        left: 20px;
-                      "
-                    >
+                    <a href="site/profile.html" class="info-link">
                       ویرایش اطلاعات
                     </a>
                   </div>

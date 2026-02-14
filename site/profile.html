@@ -19,18 +19,24 @@
         color: rgb(240, 245, 242) !important;
       }
 
-      .form-input {
-        transition: all 0.2s;
+      .modal {
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: 0.2s;
       }
 
-      .form-input:focus {
+      .modal-form-input {
+        border: none;
+        background-color: rgb(240, 240, 240);
+        color: rgb(1, 46, 15);
+        caret-color: rgb(1, 46, 15);
+      }
+
+      .modal-form-input:focus {
         outline: none;
-        border: 1px solid rgb(34, 120, 60);
-        /* box-shadow: 0 0 0 3px rgba(34, 120, 60, 0.2); */
-        caret-color: rgb(34, 120, 60);
       }
 
-      .form-btn {
+      .modal-form-btn {
+        border-radius: 4px;
         border: none;
         background: linear-gradient(
           135deg,
@@ -39,19 +45,46 @@
           rgb(45, 135, 72) 65%,
           rgb(56, 143, 80) 100%
         );
-        opacity: 1;
         color: rgb(255, 255, 255);
         padding: 8px 32px;
-      }
-
-      .modal {
-        background-color: rgba(0, 0, 0, 0.5);
-        transition: 0.2s;
       }
 
       .hidden {
         visibility: hidden;
         opacity: 0;
+      }
+
+      .form-btn {
+        position: absolute;
+        border: none;
+        border-radius: 6px;
+        background: linear-gradient(
+          135deg,
+          rgb(20, 95, 45) 0%,
+          rgb(34, 120, 60) 35%,
+          rgb(45, 135, 72) 65%,
+          rgb(56, 143, 80) 100%
+        );
+        color: rgb(255, 255, 255);
+        padding: 8px 32px;
+        bottom: -20px;
+        left: 20px;
+      }
+
+      .form-input {
+        border: none;
+        border-radius: 6px;
+        color: rgb(0, 17, 5);
+        caret-color: rgb(0, 17, 5);
+      }
+
+      .form-input:focus {
+        outline: none;
+      }
+
+      .required {
+        font-size: 12px;
+        color: rgb(192, 21, 26);
       }
 
       .custom-dropdown {
@@ -151,6 +184,11 @@
       @media (max-width: 500px) {
         .modal-sm {
           width: 350px !important;
+        }
+
+        .form-btn {
+          left: 50% !important;
+          transform: translate(-50%) !important;
         }
       }
     </style>
@@ -441,397 +479,561 @@
                       </button>
                     </div>
                   </div>
-                  <div
-                    class="informations-wrapper px-4 rounded-3"
-                    style="background-color: rgb(240, 245, 242)"
-                  >
-                    <div class="row info text-center" id="natural">
-                      <div
-                        class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
-                      >
-                        <div class="d-flex flex-column align-items-start">
-                          <p
-                            class="m-0"
-                            style="color: rgb(95, 145, 108); font-weight: 500"
-                          >
-                            نام و نام خانوادگی
-                          </p>
-                          <p class="m-0 fw-bold" style="color: rgb(1, 46, 15)">
-                            محمد امین هادی نژاد
-                          </p>
-                        </div>
-                        <button
-                          class="btn--show-modal"
-                          id="full-name"
-                          style="
-                            border: none;
-                            background-color: inherit;
-                            color: rgb(34, 120, 60);
-                          "
+                  <div class="informations-wrapper">
+                    <div
+                      class="info rounded-3 px-4"
+                      id="natural"
+                      style="background-color: rgb(240, 245, 242)"
+                    >
+                      <div class="row">
+                        <div
+                          class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-12"
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-pencil-icon lucide-pencil"
-                          >
-                            <path
-                              d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                            />
-                            <path d="m15 5 4 4" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div
-                        class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
-                      >
-                        <div class="d-flex flex-column align-items-start">
-                          <p
-                            class="m-0"
-                            style="color: rgb(95, 145, 108); font-weight: 500"
-                          >
-                            پست الکترونیکی
-                          </p>
-                          <p
-                            class="m-0 fw-bold"
+                          <div class="d-flex flex-column align-items-start">
+                            <p
+                              class="m-0"
+                              style="color: rgb(95, 145, 108); font-weight: 500"
+                            >
+                              نام و نام خانوادگی
+                            </p>
+                            <p
+                              class="m-0 fw-bold"
+                              style="color: rgb(1, 46, 15)"
+                            >
+                              محمد امین هادی نژاد
+                            </p>
+                          </div>
+                          <button
+                            class="btn--show-modal"
+                            id="full-name"
                             style="
-                              color: rgb(1, 46, 15);
-                              word-break: break-word;
+                              border: none;
+                              background-color: inherit;
+                              color: rgb(34, 120, 60);
                             "
                           >
-                            mohammadaminhadinezhad@gmail.com
-                          </p>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-pencil-icon lucide-pencil"
+                            >
+                              <path
+                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                              />
+                              <path d="m15 5 4 4" />
+                            </svg>
+                          </button>
                         </div>
-                        <button
-                          class="btn--show-modal"
-                          id="email"
-                          style="
-                            border: none;
-                            background-color: inherit;
-                            color: rgb(34, 120, 60);
-                          "
+                        <div
+                          class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-12"
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-pencil-icon lucide-pencil"
+                          <div class="d-flex flex-column align-items-start">
+                            <p
+                              class="m-0"
+                              style="color: rgb(95, 145, 108); font-weight: 500"
+                            >
+                              پست الکترونیکی
+                            </p>
+                            <p
+                              class="m-0 fw-bold"
+                              style="
+                                color: rgb(1, 46, 15);
+                                word-break: break-word;
+                              "
+                            >
+                              mohammadaminhadinezhad@gmail.com
+                            </p>
+                          </div>
+                          <button
+                            class="btn--show-modal"
+                            id="email"
+                            style="
+                              border: none;
+                              background-color: inherit;
+                              color: rgb(34, 120, 60);
+                            "
                           >
-                            <path
-                              d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                            />
-                            <path d="m15 5 4 4" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div
-                        class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
-                      >
-                        <div class="d-flex flex-column align-items-start">
-                          <p
-                            class="m-0"
-                            style="color: rgb(95, 145, 108); font-weight: 500"
-                          >
-                            شماره موبایل
-                          </p>
-                          <p class="m-0 fw-bold" style="color: rgb(1, 46, 15)">
-                            09197757693
-                          </p>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-pencil-icon lucide-pencil"
+                            >
+                              <path
+                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                              />
+                              <path d="m15 5 4 4" />
+                            </svg>
+                          </button>
                         </div>
-                        <button
-                          class="btn--show-modal"
-                          id="mobile-number"
-                          style="
-                            border: none;
-                            background-color: inherit;
-                            color: rgb(34, 120, 60);
-                          "
+                        <div
+                          class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-12"
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-pencil-icon lucide-pencil"
+                          <div class="d-flex flex-column align-items-start">
+                            <p
+                              class="m-0"
+                              style="color: rgb(95, 145, 108); font-weight: 500"
+                            >
+                              شماره موبایل
+                            </p>
+                            <p
+                              class="m-0 fw-bold"
+                              style="color: rgb(1, 46, 15)"
+                            >
+                              09197757693
+                            </p>
+                          </div>
+                          <button
+                            class="btn--show-modal"
+                            id="mobile-number"
+                            style="
+                              border: none;
+                              background-color: inherit;
+                              color: rgb(34, 120, 60);
+                            "
                           >
-                            <path
-                              d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                            />
-                            <path d="m15 5 4 4" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div
-                        class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
-                      >
-                        <div class="d-flex flex-column align-items-start">
-                          <p
-                            class="m-0"
-                            style="color: rgb(95, 145, 108); font-weight: 500"
-                          >
-                            کد ملی
-                          </p>
-                          <p class="m-0 fw-bold" style="color: rgb(1, 46, 15)">
-                            0023839236
-                          </p>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-pencil-icon lucide-pencil"
+                            >
+                              <path
+                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                              />
+                              <path d="m15 5 4 4" />
+                            </svg>
+                          </button>
                         </div>
-                        <button
-                          class="btn--show-modal"
-                          id="national-id"
-                          style="
-                            border: none;
-                            background-color: inherit;
-                            color: rgb(34, 120, 60);
-                          "
+                        <div
+                          class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-12"
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-pencil-icon lucide-pencil"
+                          <div class="d-flex flex-column align-items-start">
+                            <p
+                              class="m-0"
+                              style="color: rgb(95, 145, 108); font-weight: 500"
+                            >
+                              کد ملی
+                            </p>
+                            <p
+                              class="m-0 fw-bold"
+                              style="color: rgb(1, 46, 15)"
+                            >
+                              0023839236
+                            </p>
+                          </div>
+                          <button
+                            class="btn--show-modal"
+                            id="national-id"
+                            style="
+                              border: none;
+                              background-color: inherit;
+                              color: rgb(34, 120, 60);
+                            "
                           >
-                            <path
-                              d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                            />
-                            <path d="m15 5 4 4" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div
-                        class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
-                      >
-                        <div class="d-flex flex-column align-items-start">
-                          <p
-                            class="m-0"
-                            style="color: rgb(95, 145, 108); font-weight: 500"
-                          >
-                            نشانی
-                          </p>
-                          <p class="m-0 fw-bold" style="color: rgb(1, 46, 15)">
-                            شهران جنوبی کوچه قائم آل محمد پلاک 15 واحد 3
-                          </p>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-pencil-icon lucide-pencil"
+                            >
+                              <path
+                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                              />
+                              <path d="m15 5 4 4" />
+                            </svg>
+                          </button>
                         </div>
-                        <button
-                          class="btn--show-modal"
-                          id="location"
-                          style="
-                            border: none;
-                            background-color: inherit;
-                            color: rgb(34, 120, 60);
-                          "
+                        <div
+                          class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-12"
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-pencil-icon lucide-pencil"
+                          <div class="d-flex flex-column align-items-start">
+                            <p
+                              class="m-0"
+                              style="color: rgb(95, 145, 108); font-weight: 500"
+                            >
+                              نشانی
+                            </p>
+                            <p
+                              class="m-0 fw-bold"
+                              style="color: rgb(1, 46, 15)"
+                            >
+                              شهران جنوبی کوچه قائم آل محمد پلاک 15 واحد 3
+                            </p>
+                          </div>
+                          <button
+                            class="btn--show-modal"
+                            id="location"
+                            style="
+                              border: none;
+                              background-color: inherit;
+                              color: rgb(34, 120, 60);
+                            "
                           >
-                            <path
-                              d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                            />
-                            <path d="m15 5 4 4" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div
-                        class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
-                      >
-                        <div class="d-flex flex-column align-items-start">
-                          <p
-                            class="m-0"
-                            style="color: rgb(95, 145, 108); font-weight: 500"
-                          >
-                            کد پستی
-                          </p>
-                          <p class="m-0 fw-bold" style="color: rgb(1, 46, 15)">
-                            1474944148
-                          </p>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-pencil-icon lucide-pencil"
+                            >
+                              <path
+                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                              />
+                              <path d="m15 5 4 4" />
+                            </svg>
+                          </button>
                         </div>
-                        <button
-                          class="btn--show-modal"
-                          id="postal-code"
-                          style="
-                            border: none;
-                            background-color: inherit;
-                            color: rgb(34, 120, 60);
-                          "
+                        <div
+                          class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-12"
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-pencil-icon lucide-pencil"
+                          <div class="d-flex flex-column align-items-start">
+                            <p
+                              class="m-0"
+                              style="color: rgb(95, 145, 108); font-weight: 500"
+                            >
+                              کد پستی
+                            </p>
+                            <p
+                              class="m-0 fw-bold"
+                              style="color: rgb(1, 46, 15)"
+                            >
+                              1474944148
+                            </p>
+                          </div>
+                          <button
+                            class="btn--show-modal"
+                            id="postal-code"
+                            style="
+                              border: none;
+                              background-color: inherit;
+                              color: rgb(34, 120, 60);
+                            "
                           >
-                            <path
-                              d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                            />
-                            <path d="m15 5 4 4" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div
-                        class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
-                      >
-                        <div class="d-flex flex-column align-items-start">
-                          <p
-                            class="m-0"
-                            style="color: rgb(95, 145, 108); font-weight: 500"
-                          >
-                            شغل
-                          </p>
-                          <p class="m-0 fw-bold" style="color: rgb(1, 46, 15)">
-                            -
-                          </p>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-pencil-icon lucide-pencil"
+                            >
+                              <path
+                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                              />
+                              <path d="m15 5 4 4" />
+                            </svg>
+                          </button>
                         </div>
-                        <button
-                          class="btn--show-modal"
-                          id="job"
-                          style="
-                            border: none;
-                            background-color: inherit;
-                            color: rgb(34, 120, 60);
-                          "
+                        <div
+                          class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-12"
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-pencil-icon lucide-pencil"
+                          <div class="d-flex flex-column align-items-start">
+                            <p
+                              class="m-0"
+                              style="color: rgb(95, 145, 108); font-weight: 500"
+                            >
+                              شغل
+                            </p>
+                            <p
+                              class="m-0 fw-bold"
+                              style="color: rgb(1, 46, 15)"
+                            >
+                              -
+                            </p>
+                          </div>
+                          <button
+                            class="btn--show-modal"
+                            id="job"
+                            style="
+                              border: none;
+                              background-color: inherit;
+                              color: rgb(34, 120, 60);
+                            "
                           >
-                            <path
-                              d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                            />
-                            <path d="m15 5 4 4" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div
-                        class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
-                      >
-                        <div class="d-flex flex-column align-items-start">
-                          <p
-                            class="m-0"
-                            style="color: rgb(95, 145, 108); font-weight: 500"
-                          >
-                            تاریخ تولد
-                          </p>
-                          <p class="m-0 fw-bold" style="color: rgb(1, 46, 15)">
-                            -
-                          </p>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-pencil-icon lucide-pencil"
+                            >
+                              <path
+                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                              />
+                              <path d="m15 5 4 4" />
+                            </svg>
+                          </button>
                         </div>
-                        <button
-                          class="btn--show-modal"
-                          id="birthdate"
-                          style="
-                            border: none;
-                            background-color: inherit;
-                            color: rgb(34, 120, 60);
-                          "
+                        <div
+                          class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-12"
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-pencil-icon lucide-pencil"
+                          <div class="d-flex flex-column align-items-start">
+                            <p
+                              class="m-0"
+                              style="color: rgb(95, 145, 108); font-weight: 500"
+                            >
+                              تاریخ تولد
+                            </p>
+                            <p
+                              class="m-0 fw-bold"
+                              style="color: rgb(1, 46, 15)"
+                            >
+                              -
+                            </p>
+                          </div>
+                          <button
+                            class="btn--show-modal"
+                            id="birthdate"
+                            style="
+                              border: none;
+                              background-color: inherit;
+                              color: rgb(34, 120, 60);
+                            "
                           >
-                            <path
-                              d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                            />
-                            <path d="m15 5 4 4" />
-                          </svg>
-                        </button>
-                      </div>
-                      <div
-                        class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-sm-6 col-12"
-                      >
-                        <div class="d-flex flex-column align-items-start">
-                          <p
-                            class="m-0"
-                            style="color: rgb(95, 145, 108); font-weight: 500"
-                          >
-                            رمز عبور
-                          </p>
-                          <p class="m-0 fw-bold" style="color: rgb(1, 46, 15)">
-                            ******
-                          </p>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-pencil-icon lucide-pencil"
+                            >
+                              <path
+                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                              />
+                              <path d="m15 5 4 4" />
+                            </svg>
+                          </button>
                         </div>
-                        <button
-                          class="btn--show-modal"
-                          id="password"
-                          style="
-                            border: none;
-                            background-color: inherit;
-                            color: rgb(34, 120, 60);
-                          "
+                        <div
+                          class="d-flex justify-content-between align-items-center px-3 py-4 col-md-4 col-12"
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="lucide lucide-pencil-icon lucide-pencil"
+                          <div class="d-flex flex-column align-items-start">
+                            <p
+                              class="m-0"
+                              style="color: rgb(95, 145, 108); font-weight: 500"
+                            >
+                              رمز عبور
+                            </p>
+                            <p
+                              class="m-0 fw-bold"
+                              style="color: rgb(1, 46, 15)"
+                            >
+                              ******
+                            </p>
+                          </div>
+                          <button
+                            class="btn--show-modal"
+                            id="password"
+                            style="
+                              border: none;
+                              background-color: inherit;
+                              color: rgb(34, 120, 60);
+                            "
                           >
-                            <path
-                              d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
-                            />
-                            <path d="m15 5 4 4" />
-                          </svg>
-                        </button>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-pencil-icon lucide-pencil"
+                            >
+                              <path
+                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                              />
+                              <path d="m15 5 4 4" />
+                            </svg>
+                          </button>
+                        </div>
                       </div>
                     </div>
-                    <div class="info d-none" id="legal"></div>
+                    <div class="info d-none" id="legal">
+                      <div class="d-flex flex-column">
+                        <p style="color: rgb(102, 102, 102)">
+                          با تکمیل مشخصات حقوقی، می‌توانید اقدام به خرید سازمانی
+                          با دریافت فاکتور رسمی و گواهی ارزش افزوده نمایید.
+                        </p>
+                        <form
+                          action=""
+                          class="p-4 position-relative"
+                          style="background-color: rgb(240, 245, 242)"
+                        >
+                          <div class="row">
+                            <div class="col-md-4 col-sm-6">
+                              <div class="d-flex flex-column mb-4">
+                                <label
+                                  for=""
+                                  class="mb-1"
+                                  style="color: rgb(0, 17, 5)"
+                                  >نام شرکت</label
+                                >
+                                <input
+                                  class="form-input fw-semibold py-1 px-3"
+                                  type="text"
+                                />
+                                <span class="required hidden"
+                                  >نام شرکت را وارد کنید</span
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                              <div class="d-flex flex-column mb-4">
+                                <label
+                                  for=""
+                                  class="mb-1"
+                                  style="color: rgb(0, 17, 5)"
+                                  >شناسه ملی</label
+                                >
+                                <input
+                                  class="form-input fw-semibold py-1 px-3"
+                                  type="text"
+                                />
+                                <span class="required hidden"
+                                  >شناسه ملی را بدون خط تیره وارد کنید</span
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                              <div class="d-flex flex-column mb-4">
+                                <label
+                                  for=""
+                                  class="mb-1"
+                                  style="color: rgb(0, 17, 5)"
+                                  >کد اقتصادی</label
+                                >
+                                <input
+                                  class="form-input fw-semibold py-1 px-3"
+                                  type="text"
+                                />
+                                <span class="required hidden"
+                                  >کد اقتصادی را وارد کنید</span
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                              <div class="d-flex flex-column mb-4">
+                                <label
+                                  for=""
+                                  class="mb-1"
+                                  style="color: rgb(0, 17, 5)"
+                                  >شماره موبایل</label
+                                >
+                                <input
+                                  class="form-input fw-semibold py-1 px-3"
+                                  type="text"
+                                />
+                                <span class="required hidden"
+                                  >شماره موبایل را وارد کنید</span
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                              <div class="d-flex flex-column mb-4">
+                                <label
+                                  for=""
+                                  class="mb-1"
+                                  style="color: rgb(0, 17, 5)"
+                                  >شماره ثابت</label
+                                >
+                                <input
+                                  class="form-input fw-semibold py-1 px-3"
+                                  type="text"
+                                />
+                                <span class="required hidden"
+                                  >شماره ثابت را وارد کنید</span
+                                >
+                              </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                              <div class="d-flex flex-column mb-4">
+                                <label
+                                  for=""
+                                  class="mb-1"
+                                  style="color: rgb(0, 17, 5)"
+                                  >کد پستی</label
+                                >
+                                <input
+                                  class="form-input fw-semibold py-1 px-3"
+                                  type="text"
+                                />
+                                <span class="required hidden"
+                                  >کد پستی را وارد کنید</span
+                                >
+                              </div>
+                            </div>
+                            <div class="col-12">
+                              <div class="d-flex flex-column mb-4">
+                                <label
+                                  for=""
+                                  class="mb-1"
+                                  style="color: rgb(0, 17, 5)"
+                                  >نشانی</label
+                                >
+                                <input
+                                  class="form-input fw-semibold py-1 px-3"
+                                  type="text"
+                                />
+                                <span class="required hidden"
+                                  >نشانی را وارد کنید</span
+                                >
+                              </div>
+                            </div>
+                          </div>
+                          <button type="submit" class="form-btn">
+                            تایید مشخصات
+                          </button>
+                        </form>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -892,12 +1094,7 @@
                 <div class="mb-4">
                   <input
                     type="text"
-                    class="form-input form-input--firstname w-100 py-2 px-1 fw-semibold"
-                    style="
-                      border: none;
-                      background-color: rgb(240, 240, 240);
-                      color: rgb(1, 46, 15);
-                    "
+                    class="modal-form-input modal-form-input--firstname w-100 py-2 px-1 fw-semibold"
                   />
                 </div>
               </label>
@@ -910,17 +1107,12 @@
                 <div class="mb-4">
                   <input
                     type="text"
-                    class="form-input form-input--firstname w-100 py-2 px-1 fw-semibold"
-                    style="
-                      border: none;
-                      background-color: rgb(240, 240, 240);
-                      color: rgb(1, 46, 15);
-                    "
+                    class="modal-form-input modal-form-input--firstname w-100 py-2 px-1 fw-semibold"
                   />
                 </div>
               </label>
               <div class="d-flex justify-content-end">
-                <button type="submit" class="form-btn rounded-1">
+                <button type="submit" class="modal-form-btn">
                   ثبت اطلاعات
                 </button>
               </div>
@@ -978,17 +1170,12 @@
                 <div class="mb-4">
                   <input
                     type="text"
-                    class="form-input w-100 py-2 px-1 fw-semibold"
-                    style="
-                      border: none;
-                      background-color: rgb(240, 240, 240);
-                      color: rgb(1, 46, 15);
-                    "
+                    class="modal-form-input w-100 py-2 px-1 fw-semibold"
                   />
                 </div>
               </label>
               <div class="d-flex justify-content-end">
-                <button type="submit" class="form-btn rounded-1">
+                <button type="submit" class="modal-form-btn">
                   ثبت اطلاعات
                 </button>
               </div>
@@ -1046,17 +1233,12 @@
                 <div class="mb-4">
                   <input
                     type="text"
-                    class="form-input w-100 py-2 px-1 fw-semibold"
-                    style="
-                      border: none;
-                      background-color: rgb(240, 240, 240);
-                      color: rgb(1, 46, 15);
-                    "
+                    class="modal-form-input w-100 py-2 px-1 fw-semibold"
                   />
                 </div>
               </label>
               <div class="d-flex justify-content-end">
-                <button type="submit" class="form-btn rounded-1">
+                <button type="submit" class="modal-form-btn">
                   ثبت اطلاعات
                 </button>
               </div>
@@ -1114,17 +1296,12 @@
                 <div class="mb-4">
                   <input
                     type="text"
-                    class="form-input w-100 py-2 px-1 fw-semibold"
-                    style="
-                      border: none;
-                      background-color: rgb(240, 240, 240);
-                      color: rgb(1, 46, 15);
-                    "
+                    class="modal-form-input w-100 py-2 px-1 fw-semibold"
                   />
                 </div>
               </label>
               <div class="d-flex justify-content-end">
-                <button type="submit" class="form-btn rounded-1">
+                <button type="submit" class="modal-form-btn">
                   ثبت اطلاعات
                 </button>
               </div>
@@ -1182,17 +1359,12 @@
                 <div class="mb-4">
                   <input
                     type="text"
-                    class="form-input w-100 py-2 px-1 fw-semibold"
-                    style="
-                      border: none;
-                      background-color: rgb(240, 240, 240);
-                      color: rgb(1, 46, 15);
-                    "
+                    class="modal-form-input w-100 py-2 px-1 fw-semibold"
                   />
                 </div>
               </label>
               <div class="d-flex justify-content-end">
-                <button type="submit" class="form-btn rounded-1">
+                <button type="submit" class="modal-form-btn">
                   ثبت اطلاعات
                 </button>
               </div>
@@ -1250,17 +1422,12 @@
                 <div class="mb-4">
                   <input
                     type="text"
-                    class="form-input w-100 py-2 px-1 fw-semibold"
-                    style="
-                      border: none;
-                      background-color: rgb(240, 240, 240);
-                      color: rgb(1, 46, 15);
-                    "
+                    class="modal-form-input w-100 py-2 px-1 fw-semibold"
                   />
                 </div>
               </label>
               <div class="d-flex justify-content-end">
-                <button type="submit" class="form-btn rounded-1">
+                <button type="submit" class="modal-form-btn">
                   ثبت اطلاعات
                 </button>
               </div>
@@ -1318,17 +1485,12 @@
                 <div class="mb-4">
                   <input
                     type="text"
-                    class="form-input w-100 py-2 px-1 fw-semibold"
-                    style="
-                      border: none;
-                      background-color: rgb(240, 240, 240);
-                      color: rgb(1, 46, 15);
-                    "
+                    class="modal-form-input w-100 py-2 px-1 fw-semibold"
                   />
                 </div>
               </label>
               <div class="d-flex justify-content-end">
-                <button type="submit" class="form-btn rounded-1">
+                <button type="submit" class="modal-form-btn">
                   ثبت اطلاعات
                 </button>
               </div>
@@ -1453,7 +1615,7 @@
                 </div>
               </div>
               <div class="d-flex justify-content-end">
-                <button type="submit" class="form-btn rounded-1">
+                <button type="submit" class="modal-form-btn">
                   ثبت اطلاعات
                 </button>
               </div>
@@ -1512,12 +1674,7 @@
                 <div class="mb-4">
                   <input
                     type="password"
-                    class="form-input w-100 py-2 px-1 fw-semibold"
-                    style="
-                      border: none;
-                      background-color: rgb(240, 240, 240);
-                      color: rgb(1, 46, 15);
-                    "
+                    class="modal-form-input w-100 py-2 px-1 fw-semibold"
                   />
                 </div>
               </label>
@@ -1530,12 +1687,7 @@
                 <div class="mb-4">
                   <input
                     type="password"
-                    class="form-input form-input--firstname w-100 py-2 px-1 fw-semibold"
-                    style="
-                      border: none;
-                      background-color: rgb(240, 240, 240);
-                      color: rgb(1, 46, 15);
-                    "
+                    class="modal-form-input modal-form-input--firstname w-100 py-2 px-1 fw-semibold"
                   />
                 </div>
               </label>
@@ -1548,17 +1700,12 @@
                 <div class="mb-4">
                   <input
                     type="password"
-                    class="form-input form-input--firstname w-100 py-2 px-1 fw-semibold"
-                    style="
-                      border: none;
-                      background-color: rgb(240, 240, 240);
-                      color: rgb(1, 46, 15);
-                    "
+                    class="modal-form-input modal-form-input--firstname w-100 py-2 px-1 fw-semibold"
                   />
                 </div>
               </label>
               <div class="d-flex justify-content-end">
-                <button type="submit" class="form-btn rounded-1">
+                <button type="submit" class="modal-form-btn">
                   ثبت اطلاعات
                 </button>
               </div>
@@ -1573,163 +1720,134 @@
     <script>
       'use strict';
 
-      document.addEventListener('DOMContentLoaded', function () {
-        const yearSelect = document.getElementById('yearSelect');
-        const monthSelect = document.getElementById('monthSelect');
-        const daySelect = document.getElementById('daySelect');
-        const buttonsWrapper = document.querySelector('.buttons-wrapper');
-        const informationsWrapper = document.querySelector(
-          '.informations-wrapper',
-        );
-        const allModals = document.querySelectorAll('.modal');
-        const btnsCloseModal = document.querySelectorAll('.btn--close-modal');
-        const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
-        const formButtons = document.querySelectorAll('.form-btn');
+      const buttonsWrapper = document.querySelector('.buttons-wrapper');
+      const informationsWrapper = document.querySelector(
+        '.informations-wrapper',
+      );
+      const allModals = document.querySelectorAll('.modal');
+      const btnsCloseModal = document.querySelectorAll('.btn--close-modal');
+      const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 
-        const switchInfo = function (e) {
-          const clicked = e.target.closest('button');
+      const switchInfo = function (e) {
+        const clicked = e.target.closest('button');
+        if (!clicked) return;
 
-          if (!clicked) return;
+        buttonsWrapper
+          .querySelectorAll('button')
+          .forEach(btn => btn.classList.remove('selected'));
+        clicked.classList.add('selected');
 
-          const allButtons = buttonsWrapper.querySelectorAll('button');
+        informationsWrapper.querySelectorAll('.info').forEach(info => {
+          info.classList.add('d-none');
+          if (clicked.id === info.id) info.classList.remove('d-none');
+        });
+      };
 
-          allButtons.forEach(btn => btn.classList.remove('selected'));
-          clicked.classList.add('selected');
+      if (buttonsWrapper) {
+        buttonsWrapper.addEventListener('click', switchInfo);
+      }
 
-          const allInformations = informationsWrapper.querySelectorAll('.info');
+      const openModal = function (e) {
+        const clicked = e.target.closest('button');
+        if (!clicked) return;
 
-          allInformations.forEach(info => {
-            info.classList.add('d-none');
-            if (clicked.id === info.id) {
-              info.classList.remove('d-none');
-            }
-          });
-        };
-
-        const openModal = function (e) {
-          const clicked = e.target.closest('button');
-
-          if (!clicked) return;
-
-          allModals.forEach(modal => {
-            if (clicked.id === modal.id) {
-              const modalInputs = modal.querySelectorAll('input');
-
-              modal.classList.remove('hidden');
-              modalInputs.forEach(input => {
-                input.value = '';
-              });
-            }
-          });
-        };
-
-        const closeModal = function () {
-          allModals.forEach(modal => {
-            modal.classList.add('hidden');
-          });
-        };
-
-        document.addEventListener('click', function (e) {
-          const clicked = e.target;
-
-          if (clicked.classList.contains('modal')) {
-            closeModal();
+        allModals.forEach(modal => {
+          if (clicked.id === modal.id) {
+            modal
+              .querySelectorAll('input')
+              .forEach(input => (input.value = ''));
+            modal.classList.remove('hidden');
           }
         });
+      };
 
-        document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape') {
-            allModals.forEach(modal => {
-              if (!modal.classList.contains('hidden')) {
-                closeModal();
-              }
-            });
-          }
-        });
+      const closeModal = function () {
+        allModals.forEach(modal => modal.classList.add('hidden'));
+      };
 
-        if (buttonsWrapper) {
-          buttonsWrapper.addEventListener('click', switchInfo);
-        }
+      btnsOpenModal.forEach(btn => btn.addEventListener('click', openModal));
+      btnsCloseModal.forEach(btn => btn.addEventListener('click', closeModal));
 
-        btnsOpenModal.forEach(btn => btn.addEventListener('click', openModal));
-        btnsCloseModal.forEach(btn =>
-          btn.addEventListener('click', closeModal),
-        );
+      document.addEventListener('click', function (e) {
+        if (e.target.classList.contains('modal')) closeModal();
+      });
 
-        let selectedData = {
-          year: null,
-          month: null,
-          day: null,
-        };
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+      });
 
-        const yearDropdown = document.querySelector(
-          '[data-type="year"] .dropdown-menu-custom',
-        );
+      let selectedData = { year: null, month: null, day: null };
+
+      const yearDropdown = document.querySelector(
+        '[data-type="year"] .dropdown-menu-custom',
+      );
+      if (yearDropdown) {
         for (let year = 1400; year >= 1310; year--) {
           const li = document.createElement('li');
-          li.setAttribute('data-value', year);
+          li.dataset.value = year;
           li.textContent = year;
           yearDropdown.appendChild(li);
         }
+      }
 
-        const dayDropdown = document.querySelector(
-          '[data-type="day"] .dropdown-menu-custom',
-        );
+      const dayDropdown = document.querySelector(
+        '[data-type="day"] .dropdown-menu-custom',
+      );
+      if (dayDropdown) {
         for (let day = 1; day <= 31; day++) {
           const li = document.createElement('li');
-          li.setAttribute('data-value', day);
+          li.dataset.value = day;
           li.textContent = day;
           dayDropdown.appendChild(li);
         }
+      }
 
-        document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
-          trigger.addEventListener('click', function (e) {
-            e.stopPropagation();
+      document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
+        trigger.addEventListener('click', function (e) {
+          e.stopPropagation();
 
-            const parentDropdown = this.parentElement;
-            const isActive = parentDropdown.classList.contains('active');
+          const parentDropdown = this.parentElement;
+          const isActive = parentDropdown.classList.contains('active');
 
-            document.querySelectorAll('.custom-dropdown').forEach(dd => {
-              dd.classList.remove('active');
-              dd.querySelector('.dropdown-trigger').classList.remove('active');
-            });
-
-            if (!isActive) {
-              parentDropdown.classList.add('active');
-              this.classList.add('active');
-            }
-          });
-        });
-
-        document.querySelectorAll('.dropdown-menu-custom li').forEach(item => {
-          item.addEventListener('click', function () {
-            const dropdown = this.closest('.custom-dropdown');
-            const type = dropdown.getAttribute('data-type');
-            const value = this.getAttribute('data-value');
-            const text = this.textContent;
-
-            dropdown
-              .querySelectorAll('li')
-              .forEach(li => li.classList.remove('selected'));
-
-            this.classList.add('selected');
-
-            dropdown.querySelector('.selected-value').textContent = text;
-
-            selectedData[type] = value;
-
-            dropdown.classList.remove('active');
-            dropdown
-              .querySelector('.dropdown-trigger')
-              .classList.remove('active');
-          });
-        });
-
-        document.addEventListener('click', function () {
           document.querySelectorAll('.custom-dropdown').forEach(dd => {
             dd.classList.remove('active');
             dd.querySelector('.dropdown-trigger').classList.remove('active');
           });
+
+          if (!isActive) {
+            parentDropdown.classList.add('active');
+            this.classList.add('active');
+          }
+        });
+      });
+
+      document.querySelectorAll('.dropdown-menu-custom').forEach(menu => {
+        menu.addEventListener('click', function (e) {
+          const item = e.target.closest('li');
+          if (!item) return;
+
+          const dropdown = this.closest('.custom-dropdown');
+          const type = dropdown.dataset.type;
+
+          dropdown
+            .querySelectorAll('li')
+            .forEach(li => li.classList.remove('selected'));
+          item.classList.add('selected');
+          dropdown.querySelector('.selected-value').textContent =
+            item.textContent;
+          selectedData[type] = item.dataset.value;
+
+          dropdown.classList.remove('active');
+          dropdown
+            .querySelector('.dropdown-trigger')
+            .classList.remove('active');
+        });
+      });
+
+      document.addEventListener('click', function () {
+        document.querySelectorAll('.custom-dropdown').forEach(dd => {
+          dd.classList.remove('active');
+          dd.querySelector('.dropdown-trigger').classList.remove('active');
         });
       });
     </script>
