@@ -6,112 +6,110 @@
     <title>حساب کاربری</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
-
-  <style>
-    .info-wrapper {
-      gap: 24px;
-    }
-
-    .info {
-      gap: 48px;
-    }
-
-    .h-line--person {
-      position: relative;
-    }
-
-    .h-line--person::before {
-      content: '';
-      background-color: rgb(240, 245, 242);
-      width: 110px;
-      height: 4px;
-      right: 50%;
-      position: absolute;
-      z-index: -1000;
-    }
-
-    .h-line--order {
-      position: relative;
-    }
-
-    .h-line--order::before {
-      content: '';
-      background-color: rgb(240, 245, 242);
-      width: 110px;
-      height: 4px;
-      right: 50%;
-      position: absolute;
-      z-index: -1000;
-    }
-
-    .info-link {
-      position: absolute;
-      text-decoration: none;
-      border-radius: 6px;
-      background: linear-gradient(
-        135deg,
-        rgb(20, 95, 45) 0%,
-        rgb(34, 120, 60) 35%,
-        rgb(45, 135, 72) 65%,
-        rgb(56, 143, 80) 100%
-      );
-      color: rgb(255, 255, 255);
-      padding: 8px 24px;
-      bottom: -20px;
-      left: 20px;
-    }
-
-    .v-line {
-      position: relative;
-    }
-
-    .v-line::after {
-      content: '';
-      background-color: rgb(240, 245, 242);
-      width: 120px;
-      height: 4px;
-      position: absolute;
-      top: 125%;
-      transform: rotate(90deg);
-      z-index: -1000;
-    }
-
-    .more-details:hover {
-      background-color: rgb(230, 235, 232);
-    }
-
-    @media (max-width: 576px) {
+    <style>
       .info-wrapper {
-        gap: 48px !important;
+        gap: 24px;
       }
 
       .info {
-        gap: 48px !important;
+        gap: 48px;
       }
 
-      .info--person {
-        flex-direction: column !important;
-      }
-
-      .info-link {
-        left: 50% !important;
-        transform: translate(-50%) !important;
+      .h-line--person {
+        position: relative;
       }
 
       .h-line--person::before {
-        transform: rotate(90deg);
-        right: 0%;
-        top: 125%;
+        content: '';
+        background-color: rgb(240, 245, 242);
+        width: 110px;
+        height: 4px;
+        right: 50%;
+        position: absolute;
+        z-index: -1000;
+      }
+
+      .h-line--order {
+        position: relative;
+      }
+
+      .h-line--order::before {
+        content: '';
+        background-color: rgb(240, 245, 242);
+        width: 110px;
+        height: 4px;
+        right: 50%;
+        position: absolute;
+        z-index: -1000;
+      }
+
+      .info-link {
+        position: absolute;
+        text-decoration: none;
+        border-radius: 6px;
+        background: linear-gradient(
+          135deg,
+          rgb(20, 95, 45) 0%,
+          rgb(34, 120, 60) 35%,
+          rgb(45, 135, 72) 65%,
+          rgb(56, 143, 80) 100%
+        );
+        color: rgb(255, 255, 255);
+        padding: 8px 24px;
+        bottom: -20px;
+        left: 20px;
+      }
+
+      .v-line {
+        position: relative;
       }
 
       .v-line::after {
-        width: 220px;
-        top: 150%;
+        content: '';
+        background-color: rgb(240, 245, 242);
+        width: 120px;
+        height: 4px;
+        position: absolute;
+        top: 125%;
+        transform: rotate(90deg);
+        z-index: -1000;
       }
-    }
-  </style>
 
+      .more-details:hover {
+        background-color: rgb(230, 235, 232);
+      }
+
+      @media (max-width: 576px) {
+        .info-wrapper {
+          gap: 48px !important;
+        }
+
+        .info {
+          gap: 48px !important;
+        }
+
+        .info--person {
+          flex-direction: column !important;
+        }
+
+        .info-link {
+          left: 50% !important;
+          transform: translate(-50%) !important;
+        }
+
+        .h-line--person::before {
+          transform: rotate(90deg);
+          right: 0%;
+          top: 125%;
+        }
+
+        .v-line::after {
+          width: 220px;
+          top: 150%;
+        }
+      }
+    </style>
+  </head>
   <body>
     <div class="pt-4 pb-4">
       <div class="container-lg">

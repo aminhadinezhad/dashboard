@@ -6,6 +6,51 @@
     <title>حساب کاربری</title>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <style>
+      #map {
+        height: 400px;
+        width: 100%;
+        border-radius: 8px;
+        margin-top: 10px;
+        z-index: 1;
+      }
+
+      #map-controls {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      #status {
+        font-size: 14px;
+        color: rgb(34, 120, 60);
+      }
+
+      .modal {
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: 0.2s;
+      }
+
+      .hidden {
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      @media (max-width: 576px) {
+        #map {
+          height: 300px;
+        }
+
+        .modal-sm {
+          width: 350px !important;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="pt-4 pb-4">
@@ -271,7 +316,7 @@
                       تا کنون آدرسی ثبت نکردید
                     </p>
                     <button
-                      class="d-flex align-items-center justify-content-center mt-5"
+                      class="btn--show-modal d-flex align-items-center justify-content-center mt-5"
                       style="
                         width: 336px;
                         height: 42px;
@@ -307,7 +352,136 @@
       </div>
     </div>
 
+    <div class="modal hidden d-flex justify-content-center align-items-center">
+      <div
+        class="rounded-2 border"
+        style="background-color: rgb(255, 255, 255)"
+      >
+        <div class="modal-sm pb-2" style="width: 800px">
+          <div class="d-flex flex-column py-3 px-4 gap-2 border-bottom">
+            <div class="d-flex align-items-center justify-content-between">
+              <span style="color: rgb(102, 102, 102); font-weight: 500"
+                >افزودن آدرس</span
+              >
+              <button
+                class="btn--close-modal"
+                style="
+                  border: none;
+                  background-color: inherit;
+                  color: rgb(102, 102, 102);
+                "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-circle-x-icon lucide-circle-x"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="m15 9-6 6" />
+                  <path d="m9 9 6 6" />
+                </svg>
+              </button>
+            </div>
+            <p class="m-0" style="color: rgb(33, 33, 33); font-size: 14px">
+              موقعیت مکانی را روی نقشه مشخص کنید
+            </p>
+          </div>
+          <div class="px-4">
+            <div id="map-controls" aria-label="Map controls">
+              <button
+                id="locateMe"
+                class="btn btn-outline-secondary btn-sm"
+                title="مرکز نقشه بر روی موقعیت شما"
+              >
+                موقعیت من را پیدا کن!
+              </button>
+              <span id="status" aria-live="polite"></span>
+            </div>
+            <div id="map" aria-label="نمایش نقشه تهران" wire:ignore></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/script.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+      'use strict';
+
+      const modal = document.querySelector('.modal');
+      const btnOpenModal = document.querySelector('.btn--show-modal');
+      const btnCloseModal = document.querySelector('.btn--close-modal');
+      const locateMeBtn = document.getElementById('locateMe');
+      const statusSpan = document.getElementById('status');
+
+      let map;
+      let marker;
+
+      const openModal = function () {
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+          if (!map) {
+            initMap();
+          } else {
+            map.invalidateSize();
+          }
+        }, 100);
+      };
+
+      const closeModal = function () {
+        modal.classList.add('hidden');
+      };
+
+      btnOpenModal.addEventListener('click', openModal);
+      btnCloseModal.addEventListener('click', closeModal);
+
+      function initMap() {
+        const tehran = [35.6892, 51.389];
+
+        map = L.map('map').setView(tehran, 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '© OpenStreetMap',
+        }).addTo(map);
+
+        marker = L.marker(tehran, { draggable: true }).addTo(map);
+
+        navigator.geolocation.getCurrentPosition(function (position) {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+
+          map.setView([lat, lng], 15);
+          marker.setLatLng([lat, lng]);
+          marker.bindPopup('شما اینجا هستید').openPopup();
+        });
+
+        map.on('click', function (e) {
+          marker.setLatLng(e.latlng);
+          marker.bindPopup('مکان انتخابی شما').openPopup();
+        });
+      }
+
+      const locateMe = function () {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          const lat = position.coords.latitude;
+          const lng = position.coords.longitude;
+
+          map.setView([lat, lng], 15);
+          marker.setLatLng([lat, lng]);
+          marker.bindPopup('شما اینجا هستید').openPopup();
+        });
+      };
+
+      locateMeBtn.addEventListener('click', locateMe);
+    </script>
   </body>
 </html>
