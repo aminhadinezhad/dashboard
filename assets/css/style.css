@@ -83,7 +83,7 @@
   color: rgb(56, 134, 80);
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 991px) {
   .sidebar {
     display: none !important;
   }
