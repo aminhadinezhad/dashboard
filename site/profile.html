@@ -68,9 +68,9 @@
         border-radius: 8px;
         background: rgb(255, 255, 255);
         text-align: right;
-        cursor: pointer;
         font-size: 14px;
-        color: #333;
+        color: rgb(33, 33, 33);
+        cursor: pointer;
         transition: all 0.3s ease;
         display: flex;
         justify-content: space-between;
@@ -78,26 +78,16 @@
       }
 
       .dropdown-trigger:hover {
-        border-color: rgb(34, 120, 60);
-        box-shadow: 0 2px 8px rgba(34, 120, 60, 0.1);
+        border-color: rgb(33, 33, 33);
       }
 
       .dropdown-trigger.active {
-        border-color: rgb(34, 120, 60);
-        box-shadow: 0 2px 8px rgba(34, 120, 60, 0.15);
-      }
-
-      .lucide-chevron-down {
-        transition: transform 0.3s ease;
-      }
-
-      .dropdown-trigger.active .lucide-chevron-down {
-        transform: rotate(180deg);
+        border-color: rgb(33, 33, 33);
       }
 
       .dropdown-menu-custom {
         position: absolute;
-        bottom: calc(100% + 5px);
+        top: calc(100% + 5px);
         left: 0;
         right: 0;
         max-height: 0;
@@ -107,8 +97,7 @@
         margin: 0;
         padding: 0;
         list-style: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         z-index: 1000;
       }
 
@@ -134,15 +123,15 @@
 
       .dropdown-menu-custom li {
         padding: 10px 15px;
-        cursor: pointer;
         border-radius: 6px;
         margin: 2px 0;
-        color: #333;
+        color: rgb(33, 33, 33);
         font-size: 14px;
       }
 
       .dropdown-menu-custom li:hover {
-        background-color: rgba(56, 134, 80, 0.1);
+        background: rgba(0, 0, 0, 0.04);
+        cursor: pointer;
       }
 
       .selected-value {
@@ -1552,7 +1541,7 @@
       const informationsWrapper = document.querySelector(
         '.informations-wrapper',
       );
-      const allModals = document.querySelectorAll('.modal');
+      const modals = document.querySelectorAll('.modal');
       const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
       const btnsCloseModal = document.querySelectorAll('.btn--close-modal');
 
@@ -1579,7 +1568,7 @@
         const clicked = e.target.closest('button');
         if (!clicked) return;
 
-        allModals.forEach(modal => {
+        modals.forEach(modal => {
           if (clicked.id === modal.id) {
             modal
               .querySelectorAll('input')
@@ -1590,7 +1579,7 @@
       };
 
       const closeModal = function () {
-        allModals.forEach(modal => modal.classList.add('hidden'));
+        modals.forEach(modal => modal.classList.add('hidden'));
       };
 
       btnsOpenModal.forEach(btn => btn.addEventListener('click', openModal));

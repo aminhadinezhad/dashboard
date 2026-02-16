@@ -72,9 +72,9 @@
         border-radius: 8px;
         background: rgb(255, 255, 255);
         text-align: right;
-        cursor: pointer;
         font-size: 14px;
         color: rgb(33, 33, 33);
+        cursor: pointer;
         transition: all 0.3s ease;
         display: flex;
         justify-content: space-between;
@@ -127,7 +127,6 @@
 
       .dropdown-menu-custom li {
         padding: 10px 15px;
-        cursor: pointer;
         border-radius: 6px;
         margin: 2px 0;
         color: rgb(33, 33, 33);
@@ -136,6 +135,7 @@
 
       .dropdown-menu-custom li:hover {
         background: rgba(0, 0, 0, 0.04);
+        cursor: pointer;
       }
 
       .selected-value {
@@ -467,7 +467,7 @@
 
     <div class="modals">
       <div
-        class="modal hidden d-flex justify-content-center align-items-center"
+        class="modal modal-address--map hidden d-flex justify-content-center align-items-center"
       >
         <div
           class="rounded-2 border"
@@ -554,7 +554,8 @@
             </div>
             <div class="py-3 px-4 border-top">
               <button
-                class="d-flex align-items-center justify-content-center"
+                type="button"
+                class="confirm d-flex align-items-center justify-content-center"
                 style="
                   width: 100%;
                   height: 52px;
@@ -570,7 +571,9 @@
           </div>
         </div>
       </div>
-      <div class="modal d-flex justify-content-center align-items-center">
+      <div
+        class="modal modal-address--form hidden d-flex justify-content-center align-items-center"
+      >
         <div
           class="rounded-2 border"
           style="background-color: rgb(255, 255, 255)"
@@ -780,32 +783,30 @@
     <script>
       'use strict';
 
-      const modal = document.querySelector('.modal');
-      const btnOpenModal = document.querySelector('.btn--show-modal');
-      const btnCloseModal = document.querySelector('.btn--close-modal');
+      const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+      const btnsCloseModal = document.querySelectorAll('.btn--close-modal');
       const locateMeBtn = document.getElementById('locateMe');
-      const statusSpan = document.getElementById('status');
+      const modals = document.querySelectorAll('.modal');
 
       let map;
       let marker;
 
       const openModal = function () {
-        modal.classList.remove('hidden');
-        setTimeout(() => {
-          if (!map) {
-            initMap();
-          } else {
-            map.invalidateSize();
-          }
-        }, 100);
+        modals[0].classList.remove('hidden');
+        initMap();
       };
 
       const closeModal = function () {
-        modal.classList.add('hidden');
+        modals.forEach(modal => modal.classList.add('hidden'));
       };
 
-      btnOpenModal.addEventListener('click', openModal);
-      btnCloseModal.addEventListener('click', closeModal);
+      btnsOpenModal.forEach(btnOpenModal => {
+        btnOpenModal.addEventListener('click', openModal);
+      });
+
+      btnsCloseModal.forEach(btnCloseModal => {
+        btnCloseModal.addEventListener('click', closeModal);
+      });
 
       function initMap() {
         const tehran = [35.6892, 51.389];
@@ -853,6 +854,13 @@
       };
 
       locateMeBtn.addEventListener('click', locateMe);
+
+      const confirmBtn = document.querySelector('.confirm');
+
+      confirmBtn.addEventListener('click', function () {
+        modals[0].classList.add('hidden');
+        modals[1].classList.remove('hidden');
+      });
 
       const iranData = {
         تهران: [
@@ -1115,7 +1123,7 @@
         if (!cityDropdown) return;
 
         cityDropdown.innerHTML = '';
-        if (cityTrigger) cityTrigger.textContent = 'انتخاب شهر';
+        if (cityTrigger) cityTrigger.textContent = '';
         selectedData.city = null;
 
         const cities = iranData[provinceName] || [];
