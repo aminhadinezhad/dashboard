@@ -74,7 +74,7 @@
         text-align: right;
         cursor: pointer;
         font-size: 14px;
-        color: #333;
+        color: rgb(33, 33, 33);
         transition: all 0.3s ease;
         display: flex;
         justify-content: space-between;
@@ -99,7 +99,7 @@
 
       .dropdown-menu-custom {
         position: absolute;
-        bottom: calc(100% + 5px);
+        top: calc(100% + 5px);
         left: 0;
         right: 0;
         max-height: 0;
@@ -109,8 +109,7 @@
         margin: 0;
         padding: 0;
         list-style: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         z-index: 1000;
       }
 
@@ -139,12 +138,12 @@
         cursor: pointer;
         border-radius: 6px;
         margin: 2px 0;
-        color: #333;
+        color: rgb(33, 33, 33);
         font-size: 14px;
       }
 
       .dropdown-menu-custom li:hover {
-        background-color: rgba(56, 134, 80, 0.1);
+        background: rgba(0, 0, 0, 0.04);
       }
 
       .selected-value {
@@ -663,7 +662,7 @@
                       style="flex: 1"
                     >
                       <button class="dropdown-trigger" type="button">
-                        <span class="selected-value">انتخاب کنید</span>
+                        <span class="selected-value"></span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="20"
@@ -693,7 +692,7 @@
                       style="flex: 1"
                     >
                       <button class="dropdown-trigger" type="button">
-                        <span class="selected-value">انتخاب کنید</span>
+                        <span class="selected-value"></span>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="20"
@@ -852,6 +851,339 @@
       };
 
       locateMeBtn.addEventListener('click', locateMe);
+
+      const iranData = {
+        تهران: [
+          'تهران',
+          'شهریار',
+          'ری',
+          'اسلامشهر',
+          'پاکدشت',
+          'ورامین',
+          'دماوند',
+          'فیروزکوه',
+          'رباط‌کریم',
+        ],
+        اصفهان: [
+          'اصفهان',
+          'کاشان',
+          'خمینی‌شهر',
+          'نجف‌آباد',
+          'شاهین‌شهر',
+          'فلاورجان',
+          'مبارکه',
+          'اردستان',
+          'نطنز',
+        ],
+        فارس: [
+          'شیراز',
+          'مرودشت',
+          'جهرم',
+          'کازرون',
+          'فسا',
+          'داراب',
+          'آباده',
+          'لارستان',
+          'ممسنی',
+        ],
+        'خراسان رضوی': [
+          'مشهد',
+          'نیشابور',
+          'سبزوار',
+          'تربت حیدریه',
+          'قوچان',
+          'کاشمر',
+          'تربت جام',
+          'گناباد',
+          'درگز',
+        ],
+        'آذربایجان شرقی': [
+          'تبریز',
+          'مراغه',
+          'مرند',
+          'اهر',
+          'میانه',
+          'سراب',
+          'بناب',
+          'هشترود',
+          'عجب‌شیر',
+        ],
+        'آذربایجان غربی': [
+          'ارومیه',
+          'خوی',
+          'مهاباد',
+          'بوکان',
+          'میاندوآب',
+          'سلماس',
+          'نقده',
+          'اشنویه',
+          'پیرانشهر',
+        ],
+        مازندران: [
+          'ساری',
+          'آمل',
+          'بابل',
+          'قائم‌شهر',
+          'نوشهر',
+          'چالوس',
+          'تنکابن',
+          'بابلسر',
+          'محمودآباد',
+        ],
+        گیلان: [
+          'رشت',
+          'انزلی',
+          'لاهیجان',
+          'لنگرود',
+          'آستارا',
+          'فومن',
+          'رودبار',
+          'تالش',
+          'ماسال',
+        ],
+        کرمانشاه: [
+          'کرمانشاه',
+          'اسلام‌آباد غرب',
+          'کنگاور',
+          'صحنه',
+          'هرسین',
+          'سرپل ذهاب',
+          'پاوه',
+          'جوانرود',
+          'گیلانغرب',
+        ],
+        خوزستان: [
+          'اهواز',
+          'دزفول',
+          'آبادان',
+          'خرمشهر',
+          'بهبهان',
+          'مسجدسلیمان',
+          'شوشتر',
+          'اندیمشک',
+          'ایذه',
+        ],
+        کرمان: [
+          'کرمان',
+          'سیرجان',
+          'رفسنجان',
+          'جیرفت',
+          'زرند',
+          'بم',
+          'کهنوج',
+          'شهربابک',
+          'عنبرآباد',
+        ],
+        البرز: ['کرج', 'فردیس', 'نظرآباد', 'هشتگرد', 'طالقان', 'چهارباغ'],
+        گلستان: [
+          'گرگان',
+          'گنبدکاووس',
+          'علی‌آباد کتول',
+          'بندر ترکمن',
+          'کردکوی',
+          'آزادشهر',
+          'مینودشت',
+          'رامیان',
+        ],
+        همدان: [
+          'همدان',
+          'ملایر',
+          'نهاوند',
+          'تویسرکان',
+          'اسدآباد',
+          'کبودرآهنگ',
+          'بهار',
+          'رزن',
+        ],
+        'سیستان و بلوچستان': [
+          'زاهدان',
+          'زابل',
+          'چابهار',
+          'ایرانشهر',
+          'خاش',
+          'سرباز',
+          'نیکشهر',
+          'دلگان',
+        ],
+        قم: ['قم', 'جعفریه', 'قنوات', 'سلفچگان', 'دستجرد'],
+        مرکزی: [
+          'اراک',
+          'ساوه',
+          'خمین',
+          'محلات',
+          'دلیجان',
+          'شازند',
+          'تفرش',
+          'آشتیان',
+        ],
+        بوشهر: [
+          'بوشهر',
+          'برازجان',
+          'بندر گناوه',
+          'خورموج',
+          'کنگان',
+          'عسلویه',
+          'جم',
+        ],
+        لرستان: [
+          'خرم‌آباد',
+          'بروجرد',
+          'دورود',
+          'کوهدشت',
+          'ازنا',
+          'پلدختر',
+          'الیگودرز',
+          'نورآباد',
+        ],
+        کردستان: [
+          'سنندج',
+          'سقز',
+          'مریوان',
+          'بانه',
+          'قروه',
+          'بیجار',
+          'دیواندره',
+          'کامیاران',
+        ],
+        زنجان: ['زنجان', 'ابهر', 'خرمدره', 'قیدار', 'طارم', 'ماهنشان'],
+        اردبیل: [
+          'اردبیل',
+          'مشگین‌شهر',
+          'پارس‌آباد',
+          'خلخال',
+          'بیله‌سوار',
+          'نمین',
+          'نیر',
+        ],
+        'چهارمحال و بختیاری': [
+          'شهرکرد',
+          'بروجن',
+          'فارسان',
+          'لردگان',
+          'اردل',
+          'سامان',
+        ],
+        یزد: ['یزد', 'میبد', 'اردکان', 'مهریز', 'بافق', 'طبس', 'ابرکوه'],
+        قزوین: ['قزوین', 'تاکستان', 'آبیک', 'بوئین‌زهرا', 'آوج'],
+        سمنان: ['سمنان', 'شاهرود', 'گرمسار', 'دامغان', 'مهدیشهر', 'آرادان'],
+        'خراسان شمالی': [
+          'بجنورد',
+          'شیروان',
+          'اسفراین',
+          'جاجرم',
+          'آشخانه',
+          'مانه و سملقان',
+        ],
+        'خراسان جنوبی': ['بیرجند', 'قاین', 'فردوس', 'طبس', 'بشرویه', 'نهبندان'],
+        ایلام: ['ایلام', 'مهران', 'دهلران', 'ایوان', 'آبدانان', 'دره‌شهر'],
+        هرمزگان: [
+          'بندرعباس',
+          'میناب',
+          'قشم',
+          'بندرلنگه',
+          'حاجی‌آباد',
+          'رودان',
+          'جاسک',
+        ],
+        گلستان: ['گرگان', 'گنبدکاووس', 'علی‌آباد', 'بندر ترکمن', 'کردکوی'],
+      };
+
+      let selectedData = { province: null, city: null };
+
+      const provinceDropdown = document.querySelector(
+        '[data-type="province"] .dropdown-menu-custom',
+      );
+      if (provinceDropdown) {
+        Object.keys(iranData).forEach(provinceName => {
+          const li = document.createElement('li');
+          li.dataset.value = provinceName;
+          li.textContent = provinceName;
+          provinceDropdown.appendChild(li);
+        });
+      }
+
+      function updateCities(provinceName) {
+        const cityDropdown = document.querySelector(
+          '[data-type="city"] .dropdown-menu-custom',
+        );
+        const cityTrigger = document.querySelector(
+          '[data-type="city"] .selected-value',
+        );
+
+        if (!cityDropdown) return;
+
+        cityDropdown.innerHTML = '';
+        if (cityTrigger) cityTrigger.textContent = 'انتخاب شهر';
+        selectedData.city = null;
+
+        const cities = iranData[provinceName] || [];
+        cities.forEach(cityName => {
+          const li = document.createElement('li');
+          li.dataset.value = cityName;
+          li.textContent = cityName;
+          cityDropdown.appendChild(li);
+        });
+      }
+
+      document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
+        trigger.addEventListener('click', function (e) {
+          e.stopPropagation();
+
+          const parentDropdown = this.parentElement;
+          const isActive = parentDropdown.classList.contains('active');
+
+          document.querySelectorAll('.custom-dropdown').forEach(dd => {
+            dd.classList.remove('active');
+            dd.querySelector('.dropdown-trigger').classList.remove('active');
+          });
+
+          if (
+            parentDropdown.dataset.type === 'city' &&
+            !selectedData.province
+          ) {
+            return;
+          }
+
+          if (!isActive) {
+            parentDropdown.classList.add('active');
+            this.classList.add('active');
+          }
+        });
+      });
+
+      document.querySelectorAll('.dropdown-menu-custom').forEach(menu => {
+        menu.addEventListener('click', function (e) {
+          const item = e.target.closest('li');
+          if (!item) return;
+
+          const dropdown = this.closest('.custom-dropdown');
+          const type = dropdown.dataset.type;
+
+          dropdown
+            .querySelectorAll('li')
+            .forEach(li => li.classList.remove('selected'));
+          item.classList.add('selected');
+          dropdown.querySelector('.selected-value').textContent =
+            item.textContent;
+          selectedData[type] = item.dataset.value;
+
+          if (type === 'province') {
+            updateCities(item.dataset.value);
+          }
+
+          dropdown.classList.remove('active');
+          dropdown
+            .querySelector('.dropdown-trigger')
+            .classList.remove('active');
+        });
+      });
+
+      document.addEventListener('click', function () {
+        document.querySelectorAll('.custom-dropdown').forEach(dd => {
+          dd.classList.remove('active');
+          dd.querySelector('.dropdown-trigger').classList.remove('active');
+        });
+      });
     </script>
   </body>
 </html>
