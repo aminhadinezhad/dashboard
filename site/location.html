@@ -28,7 +28,7 @@
 
       .modal {
         background-color: rgba(0, 0, 0, 0.5);
-        transition: 0.2s;
+        transition: 0.1s;
       }
 
       .hidden {
@@ -555,7 +555,7 @@
             <div class="py-3 px-4 border-top">
               <button
                 type="button"
-                class="confirm d-flex align-items-center justify-content-center"
+                class="btn--continue-address d-flex align-items-center justify-content-center"
                 style="
                   width: 100%;
                   height: 52px;
@@ -759,7 +759,8 @@
             </div>
             <div class="py-3 px-4 border-top">
               <button
-                class="d-flex align-items-center justify-content-center"
+                type="button"
+                class="btn--submit-address d-flex align-items-center justify-content-center"
                 style="
                   width: 100%;
                   height: 52px;
@@ -783,10 +784,20 @@
     <script>
       'use strict';
 
+      const modals = document.querySelectorAll('.modal');
       const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
       const btnsCloseModal = document.querySelectorAll('.btn--close-modal');
-      const locateMeBtn = document.getElementById('locateMe');
-      const modals = document.querySelectorAll('.modal');
+      const btnBackMapModal = document.querySelector(
+        '.modal-address--map .btn--back-modal',
+      );
+      const btnBackFormModal = document.querySelector(
+        '.modal-address--form .btn--back-modal',
+      );
+      const btnLocateMe = document.getElementById('locateMe');
+      const btnContinueAddress = document.querySelector(
+        '.btn--continue-address',
+      );
+      const btnSubmitAddress = document.querySelector('.btn--submit-address');
 
       let map;
       let marker;
@@ -806,6 +817,26 @@
 
       btnsCloseModal.forEach(btnCloseModal => {
         btnCloseModal.addEventListener('click', closeModal);
+      });
+
+      if (btnBackMapModal) {
+        btnBackMapModal.addEventListener('click', closeModal);
+      }
+
+      if (btnBackFormModal) {
+        btnBackFormModal.addEventListener('click', function () {
+          modals[1].classList.add('hidden');
+          modals[0].classList.remove('hidden');
+        });
+      }
+
+      btnContinueAddress.addEventListener('click', function () {
+        modals[0].classList.add('hidden');
+        modals[1].classList.remove('hidden');
+      });
+
+      btnSubmitAddress.addEventListener('click', function () {
+        modals[1].classList.add('hidden');
       });
 
       function initMap() {
@@ -853,14 +884,7 @@
         });
       };
 
-      locateMeBtn.addEventListener('click', locateMe);
-
-      const confirmBtn = document.querySelector('.confirm');
-
-      confirmBtn.addEventListener('click', function () {
-        modals[0].classList.add('hidden');
-        modals[1].classList.remove('hidden');
-      });
+      btnLocateMe.addEventListener('click', locateMe);
 
       const iranData = {
         تهران: [
