@@ -28,7 +28,6 @@
 
       .modal {
         background-color: rgba(0, 0, 0, 0.5);
-        transition: 0.1s;
       }
 
       .hidden {
@@ -47,12 +46,12 @@
       }
 
       .modal-form-input:hover {
-        border-color: rgb(33, 33, 33);
+        border-color: rgb(34, 120, 60);
       }
 
       .modal-form-input:focus {
         outline: none;
-        border-color: rgb(33, 33, 33);
+        border-color: rgb(34, 120, 60);
       }
 
       label {
@@ -82,11 +81,11 @@
       }
 
       .dropdown-trigger:hover {
-        border-color: rgb(33, 33, 33);
+        border-color: rgb(34, 120, 60);
       }
 
       .dropdown-trigger.active {
-        border-color: rgb(33, 33, 33);
+        border-color: rgb(34, 120, 60);
       }
 
       .dropdown-menu-custom {
@@ -127,15 +126,21 @@
 
       .dropdown-menu-custom li {
         padding: 10px 15px;
-        border-radius: 6px;
         margin: 2px 0;
+        border-radius: 6px;
         color: rgb(33, 33, 33);
         font-size: 14px;
       }
 
       .dropdown-menu-custom li:hover {
-        background: rgba(0, 0, 0, 0.04);
+        background-color: rgb(34, 120, 60, 0.08);
         cursor: pointer;
+      }
+
+      .selected {
+        background-color: rgb(34, 120, 60) !important;
+        opacity: 1 !important;
+        color: rgb(240, 245, 242) !important;
       }
 
       .selected-value {
