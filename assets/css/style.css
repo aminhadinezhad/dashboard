@@ -1,3 +1,8 @@
+.required {
+  font-size: 12px;
+  color: rgb(192, 21, 26);
+}
+
 .bottombar {
   background-color: #fff;
   padding: 0 16px;
