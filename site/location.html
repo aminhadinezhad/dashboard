@@ -419,48 +419,245 @@
           <div class="col-lg-9">
             <div class="content py-3">
               <div class="d-flex flex-column gap-4 px-1">
-                <div>
+                <div class="d-flex justify-content-between">
                   <span class="fw-bold" style="font-size: 18px">نشانی ها</span>
-                </div>
-                <div class="d-flex justify-content-center">
-                  <div class="d-flex flex-column align-items-center">
-                    <img
-                      src="../assets/images/location.png"
-                      alt=""
-                      width="190"
-                      height="190"
-                    />
-                    <p class="m-0" style="font-size: 14px; font-weight: 600">
-                      تا کنون آدرسی ثبت نکردید
-                    </p>
-                    <button
-                      class="btn--show-modal d-flex align-items-center justify-content-center mt-5"
-                      style="
-                        width: 336px;
-                        height: 42px;
-                        border: 2px solid rgb(34, 120, 60);
-                        border-radius: 8px;
-                        background: rgb(255, 255, 255);
-                        color: rgb(34, 120, 60);
-                      "
+                  <button
+                    class="d-none btn--show-modal d-flex align-items-center gap-1"
+                    style="
+                      background: inherit;
+                      color: rgb(34, 120, 60);
+                      border: none;
+                    "
+                  >
+                    <span class="fw-bold">افزودن آدرس جدید</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-plus-icon lucide-plus"
                     >
-                      <span>افزودن آدرس</span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-plus-icon lucide-plus"
+                      <path d="M5 12h14" />
+                      <path d="M12 5v14" />
+                    </svg>
+                  </button>
+                </div>
+                <div class="empty-state d-flex flex-column align-items-center">
+                  <img
+                    src="../assets/images/location.png"
+                    alt=""
+                    width="190"
+                    height="190"
+                  />
+                  <p class="fw-semibold m-0" style="font-size: 14px">
+                    تا کنون آدرسی ثبت نکردید
+                  </p>
+                  <button
+                    class="btn--show-modal d-flex align-items-center justify-content-center mt-5"
+                    style="
+                      width: 336px;
+                      height: 42px;
+                      border: 2px solid rgb(34, 120, 60);
+                      border-radius: 8px;
+                      background: rgb(255, 255, 255);
+                      color: rgb(34, 120, 60);
+                    "
+                  >
+                    <span class="fw-semibold">افزودن آدرس</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-plus-icon lucide-plus"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="M12 5v14" />
+                    </svg>
+                  </button>
+                </div>
+                <div class="d-none address-card d-flex mt-4">
+                  <div
+                    style="
+                      width: 100%;
+                      padding: 32px 24px;
+                      background-color: #ffffff;
+                      border-radius: 12px;
+                      box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+                    "
+                  >
+                    <div class="d-flex flex-column gap-4">
+                      <div class="d-flex align-items-center gap-3">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="rgb(34, 120, 60)"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          class="lucide lucide-map-pin-icon lucide-map-pin"
+                        >
+                          <path
+                            d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                          />
+                          <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <p class="m-0" style="color: rgb(33, 33, 33)">
+                          تهران,تهران شهران جنوبی، بل شهران، خ. قائم آل محمد /
+                          پلاک 15 / واحد 3
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex align-items-end justify-content-between"
+                        style="font-size: 14px"
                       >
-                        <path d="M5 12h14" />
-                        <path d="M12 5v14" />
-                      </svg>
-                    </button>
+                        <div class="d-flex flex-column gap-2">
+                          <div class="d-flex align-items-center gap-3">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="rgb(156, 157, 158)"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-phone-icon lucide-phone"
+                            >
+                              <path
+                                d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"
+                              />
+                            </svg>
+                            <p class="m-0" style="color: rgb(33, 33, 33)">
+                              09197757693
+                            </p>
+                          </div>
+                          <div class="d-flex align-items-center gap-3">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="rgb(156, 157, 158)"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-user-round-icon lucide-user-round"
+                            >
+                              <circle cx="12" cy="8" r="5" />
+                              <path d="M20 21a8 8 0 0 0-16 0" />
+                            </svg>
+                            <p class="m-0" style="color: rgb(33, 33, 33)">
+                              محمد امین هادی نژاد
+                            </p>
+                          </div>
+                          <div class="d-flex align-items-center gap-3">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="20"
+                              height="20"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="rgb(156, 157, 158)"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-mail-icon lucide-mail"
+                            >
+                              <path
+                                d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"
+                              />
+                              <rect x="2" y="4" width="20" height="16" rx="2" />
+                            </svg>
+                            <p class="m-0" style="color: rgb(33, 33, 33)">
+                              1474944148
+                            </p>
+                          </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                          <button
+                            class="d-flex align-items-center"
+                            style="
+                              background: inherit;
+                              color: rgb(156, 157, 158);
+                              border: none;
+                            "
+                          >
+                            <span class="fw-semibold">ویرایش</span>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-pencil-icon lucide-pencil"
+                            >
+                              <path
+                                d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"
+                              />
+                              <path d="m15 5 4 4" />
+                            </svg>
+                          </button>
+                          <span
+                            style="
+                              width: 1px;
+                              height: 16px;
+                              background-color: rgb(211, 216, 228);
+                            "
+                          ></span>
+                          <button
+                            class="d-flex align-items-center"
+                            style="
+                              background: inherit;
+                              color: rgb(156, 157, 158);
+                              border: none;
+                            "
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              class="lucide lucide-trash2-icon lucide-trash-2"
+                            >
+                              <path d="M10 11v6" />
+                              <path d="M14 11v6" />
+                              <path
+                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"
+                              />
+                              <path d="M3 6h18" />
+                              <path
+                                d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -757,7 +954,11 @@
                       >نشانی
                       <span class="required">*</span>
                     </label>
-                    <input class="modal-form-input" type="text" placeholder="" />
+                    <input
+                      class="modal-form-input"
+                      type="text"
+                      placeholder=""
+                    />
                   </div>
                 </div>
               </form>
@@ -790,6 +991,8 @@
       'use strict';
 
       const modals = document.querySelectorAll('.modal');
+      const emptyState = document.querySelector('.empty-state');
+      const addressCard = document.querySelector('.address-card');
       const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
       const btnsCloseModal = document.querySelectorAll('.btn--close-modal');
       const btnBackMapModal = document.querySelector(
@@ -842,6 +1045,9 @@
 
       btnSubmitAddress.addEventListener('click', function () {
         modals[1].classList.add('hidden');
+        emptyState.classList.add('d-none');
+        btnsOpenModal[0].classList.remove('d-none');
+        addressCard.classList.remove('d-none');
       });
 
       function initMap() {
