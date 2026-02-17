@@ -422,7 +422,7 @@
                 <div class="d-flex justify-content-between">
                   <span class="fw-bold" style="font-size: 18px">نشانی ها</span>
                   <button
-                    class="d-none btn--show-modal d-flex align-items-center gap-1"
+                    class="d-none btn-add-address d-flex align-items-center gap-1"
                     style="
                       background: inherit;
                       color: rgb(34, 120, 60);
@@ -458,7 +458,7 @@
                     تا کنون آدرسی ثبت نکردید
                   </p>
                   <button
-                    class="btn--show-modal d-flex align-items-center justify-content-center mt-5"
+                    class="btn-add-address d-flex align-items-center justify-content-center mt-5"
                     style="
                       width: 336px;
                       height: 42px;
@@ -591,7 +591,7 @@
                         </div>
                         <div class="d-flex align-items-center gap-2">
                           <button
-                            class="d-flex align-items-center"
+                            class="btn-edit-address d-flex align-items-center"
                             style="
                               background: inherit;
                               color: rgb(156, 157, 158);
@@ -669,7 +669,7 @@
 
     <div class="modals">
       <div
-        class="modal modal-address--map hidden d-flex justify-content-center align-items-center"
+        class="modal modal-map hidden d-flex justify-content-center align-items-center"
       >
         <div
           class="rounded-2 border"
@@ -680,7 +680,7 @@
               <div class="d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center gap-2">
                   <button
-                    class="btn--back-modal p-0"
+                    class="btn-back-modal p-0"
                     style="
                       border: none;
                       background-color: inherit;
@@ -713,7 +713,7 @@
                   >
                 </div>
                 <button
-                  class="btn--close-modal p-0"
+                  class="btn-close-modal p-0"
                   style="
                     border: none;
                     background-color: inherit;
@@ -745,8 +745,7 @@
             <div class="px-4 position-relative">
               <div id="map-controls" aria-label="Map controls">
                 <button
-                  id="locateMe"
-                  class="btn btn-outline-secondary btn-sm"
+                  class="btn-locate-me btn btn-outline-secondary btn-sm"
                   title="مرکز نقشه بر روی موقعیت شما"
                 >
                   موقعیت من را پیدا کن!
@@ -757,7 +756,7 @@
             <div class="py-3 px-4 border-top">
               <button
                 type="button"
-                class="btn--continue-address d-flex align-items-center justify-content-center"
+                class="btn-continue d-flex align-items-center justify-content-center"
                 style="
                   width: 100%;
                   height: 52px;
@@ -774,7 +773,7 @@
         </div>
       </div>
       <div
-        class="modal modal-address--form hidden d-flex justify-content-center align-items-center"
+        class="modal modal-form hidden d-flex justify-content-center align-items-center"
       >
         <div
           class="rounded-2 border"
@@ -785,7 +784,7 @@
               <div class="d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center gap-2">
                   <button
-                    class="btn--back-modal p-0"
+                    class="btn-back-modal p-0"
                     style="
                       border: none;
                       background-color: inherit;
@@ -818,7 +817,7 @@
                   >
                 </div>
                 <button
-                  class="btn--close-modal p-0"
+                  class="btn-close-modal p-0"
                   style="
                     border: none;
                     background-color: inherit;
@@ -966,7 +965,7 @@
             <div class="py-3 px-4 border-top">
               <button
                 type="button"
-                class="btn--submit-address d-flex align-items-center justify-content-center"
+                class="btn-submit-address d-flex align-items-center justify-content-center"
                 style="
                   width: 100%;
                   height: 52px;
@@ -993,42 +992,45 @@
       const modals = document.querySelectorAll('.modal');
       const emptyState = document.querySelector('.empty-state');
       const addressCard = document.querySelector('.address-card');
-      const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
-      const btnsCloseModal = document.querySelectorAll('.btn--close-modal');
+      const btnsAddAddress = document.querySelectorAll('.btn-add-address');
+      const btnsEditAddress = document.querySelectorAll('.btn-edit-address');
+      const btnsCloseModal = document.querySelectorAll('.btn-close-modal');
       const btnBackMapModal = document.querySelector(
-        '.modal-address--map .btn--back-modal',
+        '.modal-map .btn-back-modal',
       );
       const btnBackFormModal = document.querySelector(
-        '.modal-address--form .btn--back-modal',
+        '.modal-form .btn-back-modal',
       );
-      const btnLocateMe = document.getElementById('locateMe');
-      const btnContinueAddress = document.querySelector(
-        '.btn--continue-address',
-      );
-      const btnSubmitAddress = document.querySelector('.btn--submit-address');
+      const btnLocateMe = document.querySelector('.btn-locate-me');
+      const btnContinue = document.querySelector('.btn-continue');
+      const btnSubmit = document.querySelector('.btn-submit-address');
 
       let map;
       let marker;
 
-      const openModal = function () {
-        modals[0].classList.remove('hidden');
-        initMap();
-      };
-
-      const closeModal = function () {
-        modals.forEach(modal => modal.classList.add('hidden'));
-      };
-
-      btnsOpenModal.forEach(btnOpenModal => {
-        btnOpenModal.addEventListener('click', openModal);
+      btnsAddAddress.forEach(btnAddAddress => {
+        btnAddAddress.addEventListener('click', function () {
+          modals[0].classList.remove('hidden');
+          initMap();
+        });
       });
 
-      btnsCloseModal.forEach(btnCloseModal => {
-        btnCloseModal.addEventListener('click', closeModal);
+      btnsEditAddress.forEach(btnEditAddress => {
+        btnEditAddress.addEventListener('click', function () {
+          modals[1].classList.remove('hidden');
+        });
+      });
+
+      btnsCloseModal.forEach(btnClose => {
+        btnClose.addEventListener('click', function () {
+          modals.forEach(modal => modal.classList.add('hidden'));
+        });
       });
 
       if (btnBackMapModal) {
-        btnBackMapModal.addEventListener('click', closeModal);
+        btnBackMapModal.addEventListener('click', function () {
+          modals.forEach(modal => modal.classList.add('hidden'));
+        });
       }
 
       if (btnBackFormModal) {
@@ -1038,15 +1040,15 @@
         });
       }
 
-      btnContinueAddress.addEventListener('click', function () {
+      btnContinue.addEventListener('click', function () {
         modals[0].classList.add('hidden');
         modals[1].classList.remove('hidden');
       });
 
-      btnSubmitAddress.addEventListener('click', function () {
+      btnSubmit.addEventListener('click', function () {
         modals[1].classList.add('hidden');
         emptyState.classList.add('d-none');
-        btnsOpenModal[0].classList.remove('d-none');
+        btnsAddAddress[0].classList.remove('d-none');
         addressCard.classList.remove('d-none');
       });
 
