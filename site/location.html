@@ -151,7 +151,7 @@
 
       @media (max-width: 768px) {
         #map {
-          height: 300px;
+          height: 300px !important;
         }
 
         .modal-sm {
@@ -161,7 +161,7 @@
 
       @media (max-width: 576px) {
         #map {
-          height: 300px;
+          height: 300px !important;
         }
 
         .modal-sm {
@@ -179,11 +179,13 @@
         .card-icon-primary {
           width: 20px !important;
           height: 20px !important;
+          flex-shrink: 0 !important;
         }
 
         .card-icon-secondary {
           width: 16px !important;
           height: 16px !important;
+          flex-shrink: 0 !important;
         }
       }
     </style>
