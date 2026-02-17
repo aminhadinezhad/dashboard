@@ -27,7 +27,7 @@
       }
 
       .modal {
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.3);
       }
 
       .hidden {
@@ -38,7 +38,7 @@
       .modal-form-input {
         padding: 8px 12px;
         border: 1.5px solid #e0e0e0;
-        border-radius: 8px;
+        border-radius: 10px;
         font-size: 14px;
         color: rgb(33, 33, 33);
         caret-color: rgb(33, 33, 33);
@@ -665,7 +665,7 @@
                             "
                           ></span>
                           <button
-                            class="d-flex align-items-center"
+                            class="btn-delete-address d-flex align-items-center"
                             style="
                               background: inherit;
                               color: rgb(156, 157, 158);
@@ -719,7 +719,7 @@
           <div class="modal-sm" style="width: 750px">
             <div class="d-flex flex-column pt-3 pb-4 px-4 gap-2 border-bottom">
               <div class="d-flex align-items-center justify-content-between">
-                <div class="d-flex align-items-center gap-2">
+                <div class="d-flex align-items-center gap-3">
                   <button
                     class="btn-back-modal p-0"
                     style="
@@ -823,7 +823,7 @@
           <div class="modal-sm" style="width: 750px">
             <div class="d-flex flex-column pt-3 pb-4 px-4 gap-2 border-bottom">
               <div class="d-flex align-items-center justify-content-between">
-                <div class="d-flex align-items-center gap-2">
+                <div class="d-flex align-items-center gap-3">
                   <button
                     class="btn-back-modal p-0"
                     style="
@@ -1046,6 +1046,109 @@
           </div>
         </div>
       </div>
+      <div
+        class="modal modal-delete hidden d-flex justify-content-center align-items-center"
+      >
+        <div
+          class="rounded-2 border"
+          style="background-color: rgb(255, 255, 255)"
+        >
+          <div class="modal-sm" style="width: 470px">
+            <div class="d-flex flex-column pt-3 pb-4 px-4 gap-2 border-bottom">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="rgb(102, 102, 102)"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-trash2-icon lucide-trash-2"
+                  >
+                    <path d="M10 11v6" />
+                    <path d="M14 11v6" />
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                    <path d="M3 6h18" />
+                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                  </svg>
+                  <span
+                    style="
+                      color: rgb(102, 102, 102);
+                      font-size: 18px;
+                      font-weight: 500;
+                    "
+                    >حذف آدرس</span
+                  >
+                </div>
+                <button
+                  class="btn-close-modal p-0"
+                  style="
+                    border: none;
+                    background-color: inherit;
+                    color: rgb(102, 102, 102);
+                  "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-circle-x-icon lucide-circle-x"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="m15 9-6 6" />
+                    <path d="m9 9 6 6" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="pt-3 pb-4 px-4">
+              <div class="d-flex flex-column gap-3">
+                <p class="m-0" style="color: rgb(33, 33, 33)">
+                  آیا از حذف این آدرس از لیست آدرس‌ها مطمئن هستید؟
+                </p>
+                <div class="d-flex mt-4" style="width: 100%">
+                  <button
+                    class="btn-cancel-delete d-flex align-items-center justify-content-center"
+                    style="
+                      width: 100%;
+                      height: 52px;
+                      border: none;
+                      border-radius: 10px;
+                      background: rgb(255, 255, 255);
+                      color: rgb(34, 120, 60);
+                    "
+                  >
+                    انصراف
+                  </button>
+                  <button
+                    class="btn-confirm-delete d-flex align-items-center justify-content-center"
+                    style="
+                      width: 100%;
+                      height: 52px;
+                      border: none;
+                      border-radius: 10px;
+                      background: rgb(34, 120, 60);
+                      color: rgb(255, 255, 255);
+                    "
+                  >
+                    حذف
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
@@ -1055,41 +1158,47 @@
       'use strict';
 
       const modals = document.querySelectorAll('.modal');
+      const modalMap = document.querySelector('.modal-map');
+      const modalForm = document.querySelector('.modal-form');
+      const modalDelete = document.querySelector('.modal-delete');
       const emptyState = document.querySelector('.empty-state');
       const addressCard = document.querySelector('.address-card');
       const btnsAddAddress = document.querySelectorAll('.btn-add-address');
       const btnsEditAddress = document.querySelectorAll('.btn-edit-address');
       const btnEditLocation = document.querySelector('.btn-edit-location');
       const btnsCloseModal = document.querySelectorAll('.btn-close-modal');
-      const btnBackMapModal = document.querySelector(
+      const btnBackModalMap = document.querySelector(
         '.modal-map .btn-back-modal',
       );
-      const btnBackFormModal = document.querySelector(
+      const btnBackModalForm = document.querySelector(
         '.modal-form .btn-back-modal',
       );
       const btnLocateMe = document.querySelector('.btn-locate-me');
       const btnContinue = document.querySelector('.btn-continue');
       const btnSubmit = document.querySelector('.btn-submit-address');
+      const btnDelete = document.querySelector('.btn-delete-address');
+      const btnConfirmDelete = document.querySelector('.btn-confirm-delete');
+      const btnCancelDelete = document.querySelector('.btn-cancel-delete');
 
       let map;
       let marker;
 
       btnsAddAddress.forEach(btnAddAddress => {
         btnAddAddress.addEventListener('click', function () {
-          modals[0].classList.remove('hidden');
+          modalMap.classList.remove('hidden');
           initMap();
         });
       });
 
       btnsEditAddress.forEach(btnEditAddress => {
         btnEditAddress.addEventListener('click', function () {
-          modals[1].classList.remove('hidden');
+          modalForm.classList.remove('hidden');
         });
       });
 
       btnEditLocation.addEventListener('click', function () {
-        modals[1].classList.add('hidden');
-        modals[0].classList.remove('hidden');
+        modalForm.classList.add('hidden');
+        modalMap.classList.remove('hidden');
       });
 
       btnsCloseModal.forEach(btnClose => {
@@ -1098,29 +1207,44 @@
         });
       });
 
-      if (btnBackMapModal) {
-        btnBackMapModal.addEventListener('click', function () {
+      if (btnBackModalMap) {
+        btnBackModalMap.addEventListener('click', function () {
           modals.forEach(modal => modal.classList.add('hidden'));
         });
       }
 
-      if (btnBackFormModal) {
-        btnBackFormModal.addEventListener('click', function () {
-          modals[1].classList.add('hidden');
-          modals[0].classList.remove('hidden');
+      if (btnBackModalForm) {
+        btnBackModalForm.addEventListener('click', function () {
+          modalForm.classList.add('hidden');
+          modalMap.classList.remove('hidden');
         });
       }
 
       btnContinue.addEventListener('click', function () {
-        modals[0].classList.add('hidden');
-        modals[1].classList.remove('hidden');
+        modalMap.classList.add('hidden');
+        modalForm.classList.remove('hidden');
       });
 
       btnSubmit.addEventListener('click', function () {
-        modals[1].classList.add('hidden');
+        modalForm.classList.add('hidden');
         emptyState.classList.add('d-none');
         btnsAddAddress[0].classList.remove('d-none');
         addressCard.classList.remove('d-none');
+      });
+
+      btnDelete.addEventListener('click', function () {
+        modalDelete.classList.remove('hidden');
+      });
+
+      btnCancelDelete.addEventListener('click', function () {
+        modalDelete.classList.add('hidden');
+      });
+
+      btnConfirmDelete.addEventListener('click', function () {
+        modalDelete.classList.add('hidden');
+        addressCard.classList.add('d-none');
+        btnsAddAddress[0].classList.add('d-none');
+        emptyState.classList.remove('d-none');
       });
 
       function initMap() {
