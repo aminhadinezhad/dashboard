@@ -1222,7 +1222,7 @@
           modalMap.classList.add('hidden');
           modalForm.classList.remove('hidden');
         } else {
-          modals.forEach(modal => modal.classList.add('hidden'));
+          modalMap.classList.add('hidden');
         }
       });
 
@@ -1260,7 +1260,7 @@
       btnConfirmDelete.addEventListener('click', function () {
         modalDelete.classList.add('hidden');
         addressCard.classList.add('d-none');
-        btnsAddAddress[0].classList.add('d-none');
+        btnAddNewAddress.classList.add('d-none');
         emptyState.classList.remove('d-none');
       });
 
