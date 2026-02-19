@@ -442,7 +442,7 @@
                 <div class="d-flex justify-content-between">
                   <span class="fw-bold" style="font-size: 18px">نشانی ها</span>
                   <button
-                    class="d-none btn-add-address d-flex align-items-center gap-1"
+                    class="d-none btn-add-new-address d-flex align-items-center gap-1"
                     style="
                       background: inherit;
                       color: rgb(34, 120, 60);
@@ -849,6 +849,7 @@
                     </svg>
                   </button>
                   <span
+                    class="modal-form-title"
                     style="
                       color: rgb(102, 102, 102);
                       font-size: 18px;
@@ -1160,9 +1161,12 @@
       const modals = document.querySelectorAll('.modal');
       const modalMap = document.querySelector('.modal-map');
       const modalForm = document.querySelector('.modal-form');
+      const modalFormTitle = document.querySelector('.modal-form-title');
       const modalDelete = document.querySelector('.modal-delete');
       const emptyState = document.querySelector('.empty-state');
       const addressCard = document.querySelector('.address-card');
+      const btnAddAddress = document.querySelector('.btn-add-address');
+      const btnAddNewAddress = document.querySelector('.btn-add-new-address');
       const btnsAddAddress = document.querySelectorAll('.btn-add-address');
       const btnsEditAddress = document.querySelectorAll('.btn-edit-address');
       const btnEditLocation = document.querySelector('.btn-edit-location');
@@ -1182,21 +1186,26 @@
 
       let map;
       let marker;
+      initMap();
 
-      btnsAddAddress.forEach(btnAddAddress => {
-        btnAddAddress.addEventListener('click', function () {
-          modalMap.classList.remove('hidden');
-          initMap();
-        });
+      btnAddAddress.addEventListener('click', function () {
+        modalMap.classList.remove('hidden');
+      });
+
+      btnAddNewAddress.addEventListener('click', function () {
+        modalMap.classList.remove('hidden');
       });
 
       btnsEditAddress.forEach(btnEditAddress => {
         btnEditAddress.addEventListener('click', function () {
+          modalFormTitle.textContent = 'ویرایش آدرس';
+          btnBackModalForm.classList.add('modal-closer');
           modalForm.classList.remove('hidden');
         });
       });
 
       btnEditLocation.addEventListener('click', function () {
+        btnBackModalMap.classList.add('modal-returner');
         modalForm.classList.add('hidden');
         modalMap.classList.remove('hidden');
       });
@@ -1207,18 +1216,26 @@
         });
       });
 
-      if (btnBackModalMap) {
-        btnBackModalMap.addEventListener('click', function () {
+      btnBackModalMap.addEventListener('click', function () {
+        if (btnBackModalMap.classList.contains('modal-returner')) {
+          btnBackModalMap.classList.remove('modal-returner');
+          modalMap.classList.add('hidden');
+          modalForm.classList.remove('hidden');
+        } else {
           modals.forEach(modal => modal.classList.add('hidden'));
-        });
-      }
+        }
+      });
 
-      if (btnBackModalForm) {
-        btnBackModalForm.addEventListener('click', function () {
+      btnBackModalForm.addEventListener('click', function () {
+        if (btnBackModalForm.classList.contains('modal-closer')) {
+          modalFormTitle.textContent = 'افزودن آدرس';
+          btnBackModalForm.classList.remove('modal-closer');
+          modalForm.classList.add('hidden');
+        } else {
           modalForm.classList.add('hidden');
           modalMap.classList.remove('hidden');
-        });
-      }
+        }
+      });
 
       btnContinue.addEventListener('click', function () {
         modalMap.classList.add('hidden');
@@ -1228,7 +1245,7 @@
       btnSubmit.addEventListener('click', function () {
         modalForm.classList.add('hidden');
         emptyState.classList.add('d-none');
-        btnsAddAddress[0].classList.remove('d-none');
+        btnAddNewAddress.classList.remove('d-none');
         addressCard.classList.remove('d-none');
       });
 
