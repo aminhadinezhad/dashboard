@@ -1265,6 +1265,17 @@
         }
       });
 
+      btnContinue.addEventListener('click', function () {
+        if (btnBackModalMap.classList.contains('modal-returner')) {
+          btnBackModalMap.classList.remove('modal-returner');
+          modalMap.classList.add('hidden');
+          modalForm.classList.remove('hidden');
+        } else {
+          modalMap.classList.add('hidden');
+          modalForm.classList.remove('hidden');
+        }
+      });
+
       btnSubmit.addEventListener('click', function () {
         if (btnBackModalForm.classList.contains('modal-closer')) {
           btnBackModalForm.classList.remove('modal-closer');
@@ -1286,17 +1297,6 @@
             btnAddNewAddress.classList.remove('d-none');
           }
           addressCard.classList.remove('d-none');
-        }
-      });
-
-      btnContinue.addEventListener('click', function () {
-        if (btnBackModalMap.classList.contains('modal-returner')) {
-          btnBackModalMap.classList.remove('modal-returner');
-          modalMap.classList.add('hidden');
-          modalForm.classList.remove('hidden');
-        } else {
-          modalMap.classList.add('hidden');
-          modalForm.classList.remove('hidden');
         }
       });
 
