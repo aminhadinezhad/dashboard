@@ -1266,10 +1266,9 @@
       });
 
       btnSubmit.addEventListener('click', function () {
-        if (btnBackModalMap.classList.contains('modal-returner')) {
-          modalFormTitle.textContent = 'افزودن آدرس';
+        if (btnBackModalForm.classList.contains('modal-closer')) {
           btnBackModalForm.classList.remove('modal-closer');
-          btnBackModalMap.classList.remove('modal-returner');
+          modalFormTitle.textContent = 'افزودن آدرس';
           modalForm.classList.add('hidden');
           if (!emptyState.classList.contains('d-none')) {
             emptyState.classList.add('d-none');
