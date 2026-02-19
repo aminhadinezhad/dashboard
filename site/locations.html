@@ -1170,7 +1170,15 @@
       const btnsAddAddress = document.querySelectorAll('.btn-add-address');
       const btnsEditAddress = document.querySelectorAll('.btn-edit-address');
       const btnEditLocation = document.querySelector('.btn-edit-location');
-      const btnsCloseModal = document.querySelectorAll('.btn-close-modal');
+      const btnCloseModalMap = document.querySelector(
+        '.modal-map .btn-close-modal',
+      );
+      const btnCloseModalForm = document.querySelector(
+        '.modal-form .btn-close-modal',
+      );
+      const btnCloseModalDelete = document.querySelector(
+        '.modal-delete .btn-close-modal',
+      );
       const btnBackModalMap = document.querySelector(
         '.modal-map .btn-back-modal',
       );
@@ -1204,16 +1212,47 @@
         });
       });
 
+      btnBackModalForm.addEventListener('click', function () {
+        if (btnBackModalForm.classList.contains('modal-closer')) {
+          modalFormTitle.textContent = 'افزودن آدرس';
+          btnBackModalForm.classList.remove('modal-closer');
+          modalForm.classList.add('hidden');
+        } else {
+          modalForm.classList.add('hidden');
+          modalMap.classList.remove('hidden');
+        }
+      });
+
+      btnCloseModalForm.addEventListener('click', function () {
+        if (btnBackModalForm.classList.contains('modal-closer')) {
+          modalFormTitle.textContent = 'افزودن آدرس';
+          btnBackModalForm.classList.remove('modal-closer');
+          modalForm.classList.add('hidden');
+        } else {
+          modalForm.classList.add('hidden');
+        }
+      });
+
+      btnCloseModalMap.addEventListener('click', function () {
+        if (btnBackModalMap.classList.contains('modal-returner')) {
+          if (btnBackModalForm.classList.contains('modal-closer')) {
+            modalFormTitle.textContent = 'افزودن آدرس';
+            btnBackModalForm.classList.remove('modal-closer');
+            btnBackModalMap.classList.remove('modal-returner');
+            modalMap.classList.add('hidden');
+          } else {
+            btnBackModalMap.classList.remove('modal-returner');
+            modalMap.classList.add('hidden');
+          }
+        } else {
+          modalMap.classList.add('hidden');
+        }
+      });
+
       btnEditLocation.addEventListener('click', function () {
         btnBackModalMap.classList.add('modal-returner');
         modalForm.classList.add('hidden');
         modalMap.classList.remove('hidden');
-      });
-
-      btnsCloseModal.forEach(btnClose => {
-        btnClose.addEventListener('click', function () {
-          modals.forEach(modal => modal.classList.add('hidden'));
-        });
       });
 
       btnBackModalMap.addEventListener('click', function () {
@@ -1226,31 +1265,48 @@
         }
       });
 
-      btnBackModalForm.addEventListener('click', function () {
-        if (btnBackModalForm.classList.contains('modal-closer')) {
+      btnSubmit.addEventListener('click', function () {
+        if (btnBackModalMap.classList.contains('modal-returner')) {
           modalFormTitle.textContent = 'افزودن آدرس';
           btnBackModalForm.classList.remove('modal-closer');
+          btnBackModalMap.classList.remove('modal-returner');
           modalForm.classList.add('hidden');
+          if (!emptyState.classList.contains('d-none')) {
+            emptyState.classList.add('d-none');
+          }
+          if (btnAddNewAddress.classList.contains('d-none')) {
+            btnAddNewAddress.classList.remove('d-none');
+          }
+          addressCard.classList.remove('d-none');
         } else {
           modalForm.classList.add('hidden');
-          modalMap.classList.remove('hidden');
+          if (!emptyState.classList.contains('d-none')) {
+            emptyState.classList.add('d-none');
+          }
+          if (btnAddNewAddress.classList.contains('d-none')) {
+            btnAddNewAddress.classList.remove('d-none');
+          }
+          addressCard.classList.remove('d-none');
         }
       });
 
       btnContinue.addEventListener('click', function () {
-        modalMap.classList.add('hidden');
-        modalForm.classList.remove('hidden');
-      });
-
-      btnSubmit.addEventListener('click', function () {
-        modalForm.classList.add('hidden');
-        emptyState.classList.add('d-none');
-        btnAddNewAddress.classList.remove('d-none');
-        addressCard.classList.remove('d-none');
+        if (btnBackModalMap.classList.contains('modal-returner')) {
+          btnBackModalMap.classList.remove('modal-returner');
+          modalMap.classList.add('hidden');
+          modalForm.classList.remove('hidden');
+        } else {
+          modalMap.classList.add('hidden');
+          modalForm.classList.remove('hidden');
+        }
       });
 
       btnDelete.addEventListener('click', function () {
         modalDelete.classList.remove('hidden');
+      });
+
+      btnCloseModalDelete.addEventListener('click', function () {
+        modalDelete.classList.add('hidden');
       });
 
       btnCancelDelete.addEventListener('click', function () {
@@ -1260,8 +1316,12 @@
       btnConfirmDelete.addEventListener('click', function () {
         modalDelete.classList.add('hidden');
         addressCard.classList.add('d-none');
-        btnAddNewAddress.classList.add('d-none');
-        emptyState.classList.remove('d-none');
+        if (emptyState.classList.contains('d-none')) {
+          emptyState.classList.remove('d-none');
+        }
+        if (!btnAddNewAddress.classList.contains('d-none')) {
+          btnAddNewAddress.classList.add('d-none');
+        }
       });
 
       function initMap() {
