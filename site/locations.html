@@ -1167,7 +1167,6 @@
       const addressCard = document.querySelector('.address-card');
       const btnAddAddress = document.querySelector('.btn-add-address');
       const btnAddNewAddress = document.querySelector('.btn-add-new-address');
-      const btnsAddAddress = document.querySelectorAll('.btn-add-address');
       const btnsEditAddress = document.querySelectorAll('.btn-edit-address');
       const btnEditLocation = document.querySelector('.btn-edit-location');
       const btnCloseModalMap = document.querySelector(
@@ -1192,138 +1191,17 @@
       const btnConfirmDelete = document.querySelector('.btn-confirm-delete');
       const btnCancelDelete = document.querySelector('.btn-cancel-delete');
 
-      let map;
-      let marker;
-      initMap();
+      let map = null;
+      let marker = null;
 
-      btnAddAddress.addEventListener('click', function () {
-        modalMap.classList.remove('hidden');
-      });
-
-      btnAddNewAddress.addEventListener('click', function () {
-        modalMap.classList.remove('hidden');
-      });
-
-      btnsEditAddress.forEach(btnEditAddress => {
-        btnEditAddress.addEventListener('click', function () {
-          modalFormTitle.textContent = 'ویرایش آدرس';
-          btnBackModalForm.classList.add('modal-closer');
-          modalForm.classList.remove('hidden');
-        });
-      });
-
-      btnBackModalForm.addEventListener('click', function () {
-        if (btnBackModalForm.classList.contains('modal-closer')) {
-          modalFormTitle.textContent = 'افزودن آدرس';
-          btnBackModalForm.classList.remove('modal-closer');
-          modalForm.classList.add('hidden');
-        } else {
-          modalForm.classList.add('hidden');
-          modalMap.classList.remove('hidden');
-        }
-      });
-
-      btnCloseModalForm.addEventListener('click', function () {
-        if (btnBackModalForm.classList.contains('modal-closer')) {
-          modalFormTitle.textContent = 'افزودن آدرس';
-          btnBackModalForm.classList.remove('modal-closer');
-          modalForm.classList.add('hidden');
-        } else {
-          modalForm.classList.add('hidden');
-        }
-      });
-
-      btnCloseModalMap.addEventListener('click', function () {
-        if (btnBackModalMap.classList.contains('modal-returner')) {
-          if (btnBackModalForm.classList.contains('modal-closer')) {
-            modalFormTitle.textContent = 'افزودن آدرس';
-            btnBackModalForm.classList.remove('modal-closer');
-            btnBackModalMap.classList.remove('modal-returner');
-            modalMap.classList.add('hidden');
-          } else {
-            btnBackModalMap.classList.remove('modal-returner');
-            modalMap.classList.add('hidden');
-          }
-        } else {
-          modalMap.classList.add('hidden');
-        }
-      });
-
-      btnEditLocation.addEventListener('click', function () {
-        btnBackModalMap.classList.add('modal-returner');
-        modalForm.classList.add('hidden');
-        modalMap.classList.remove('hidden');
-      });
-
-      btnBackModalMap.addEventListener('click', function () {
-        if (btnBackModalMap.classList.contains('modal-returner')) {
-          btnBackModalMap.classList.remove('modal-returner');
-          modalMap.classList.add('hidden');
-          modalForm.classList.remove('hidden');
-        } else {
-          modalMap.classList.add('hidden');
-        }
-      });
-
-      btnContinue.addEventListener('click', function () {
-        if (btnBackModalMap.classList.contains('modal-returner')) {
-          btnBackModalMap.classList.remove('modal-returner');
-          modalMap.classList.add('hidden');
-          modalForm.classList.remove('hidden');
-        } else {
-          modalMap.classList.add('hidden');
-          modalForm.classList.remove('hidden');
-        }
-      });
-
-      btnSubmit.addEventListener('click', function () {
-        if (btnBackModalForm.classList.contains('modal-closer')) {
-          btnBackModalForm.classList.remove('modal-closer');
-          modalFormTitle.textContent = 'افزودن آدرس';
-          modalForm.classList.add('hidden');
-          if (!emptyState.classList.contains('d-none')) {
-            emptyState.classList.add('d-none');
-          }
-          if (btnAddNewAddress.classList.contains('d-none')) {
-            btnAddNewAddress.classList.remove('d-none');
-          }
-          addressCard.classList.remove('d-none');
-        } else {
-          modalForm.classList.add('hidden');
-          if (!emptyState.classList.contains('d-none')) {
-            emptyState.classList.add('d-none');
-          }
-          if (btnAddNewAddress.classList.contains('d-none')) {
-            btnAddNewAddress.classList.remove('d-none');
-          }
-          addressCard.classList.remove('d-none');
-        }
-      });
-
-      btnDelete.addEventListener('click', function () {
-        modalDelete.classList.remove('hidden');
-      });
-
-      btnCloseModalDelete.addEventListener('click', function () {
-        modalDelete.classList.add('hidden');
-      });
-
-      btnCancelDelete.addEventListener('click', function () {
-        modalDelete.classList.add('hidden');
-      });
-
-      btnConfirmDelete.addEventListener('click', function () {
-        modalDelete.classList.add('hidden');
-        addressCard.classList.add('d-none');
-        if (emptyState.classList.contains('d-none')) {
-          emptyState.classList.remove('d-none');
-        }
-        if (!btnAddNewAddress.classList.contains('d-none')) {
-          btnAddNewAddress.classList.add('d-none');
-        }
-      });
+      // ─── Map ───────────────────────────────────────────────────────────────────────
 
       function initMap() {
+        if (map) {
+          map.invalidateSize();
+          return;
+        }
+
         const tehran = [35.6892, 51.389];
 
         map = L.map('map').setView(tehran, 13);
@@ -1336,39 +1214,150 @@
         marker = L.marker(tehran).addTo(map);
 
         navigator.geolocation.getCurrentPosition(function (position) {
-          const lat = position.coords.latitude;
-          const lng = position.coords.longitude;
-
-          map.flyTo([lat, lng], 15, {
-            duration: 1,
-          });
+          const { latitude: lat, longitude: lng } = position.coords;
+          map.flyTo([lat, lng], 15, { duration: 1 });
           marker.setLatLng([lat, lng]);
           marker.bindPopup('شما اینجا هستید').openPopup();
         });
 
         map.on('click', function (e) {
-          map.flyTo(e.latlng, 15, {
-            duration: 1,
-          });
+          map.flyTo(e.latlng, 15, { duration: 1 });
           marker.setLatLng(e.latlng);
           marker.bindPopup('مکان انتخابی شما').openPopup();
         });
       }
 
-      const locateMe = function () {
+      function locateMe() {
+        if (!map) return;
         navigator.geolocation.getCurrentPosition(function (position) {
-          const lat = position.coords.latitude;
-          const lng = position.coords.longitude;
-
-          map.flyTo([lat, lng], 15, {
-            duration: 1,
-          });
+          const { latitude: lat, longitude: lng } = position.coords;
+          map.flyTo([lat, lng], 15, { duration: 1 });
           marker.setLatLng([lat, lng]);
           marker.bindPopup('شما اینجا هستید').openPopup();
         });
-      };
+      }
+
+      // ─── Modal Map ────────────────────────────────────────────────────────────────
+
+      function openModalMap() {
+        modalMap.classList.remove('hidden');
+        initMap();
+      }
+
+      function closeModalMap() {
+        modalMap.classList.add('hidden');
+      }
+
+      // ─── Modal Form ───────────────────────────────────────────────────────────────
+
+      function openModalForm() {
+        modalForm.classList.remove('hidden');
+      }
+
+      function closeModalForm() {
+        modalForm.classList.add('hidden');
+      }
+
+      function resetFormModal() {
+        modalFormTitle.textContent = 'افزودن آدرس';
+        btnBackModalForm.classList.remove('modal-closer');
+      }
+
+      // ─── Event Listeners ──────────────────────────────────────────────────────────
+
+      btnAddAddress.addEventListener('click', function () {
+        openModalMap();
+      });
+
+      btnAddNewAddress.addEventListener('click', function () {
+        openModalMap();
+      });
+
+      btnsEditAddress.forEach(btn => {
+        btn.addEventListener('click', function () {
+          modalFormTitle.textContent = 'ویرایش آدرس';
+          btnBackModalForm.classList.add('modal-closer');
+          openModalForm();
+        });
+      });
+
+      btnBackModalForm.addEventListener('click', function () {
+        if (btnBackModalForm.classList.contains('modal-closer')) {
+          resetFormModal();
+          closeModalForm();
+        } else {
+          closeModalForm();
+          openModalMap();
+        }
+      });
+
+      btnCloseModalForm.addEventListener('click', function () {
+        resetFormModal();
+        closeModalForm();
+      });
+
+      btnEditLocation.addEventListener('click', function () {
+        btnBackModalMap.classList.add('modal-returner');
+        closeModalForm();
+        openModalMap();
+      });
+
+      btnBackModalMap.addEventListener('click', function () {
+        if (btnBackModalMap.classList.contains('modal-returner')) {
+          btnBackModalMap.classList.remove('modal-returner');
+          closeModalMap();
+          openModalForm();
+        } else {
+          closeModalMap();
+        }
+      });
+
+      btnCloseModalMap.addEventListener('click', function () {
+        if (btnBackModalMap.classList.contains('modal-returner')) {
+          btnBackModalMap.classList.remove('modal-returner');
+          resetFormModal();
+        }
+        closeModalMap();
+      });
+
+      btnContinue.addEventListener('click', function () {
+        if (btnBackModalMap.classList.contains('modal-returner')) {
+          btnBackModalMap.classList.remove('modal-returner');
+        }
+        closeModalMap();
+        openModalForm();
+      });
+
+      btnSubmit.addEventListener('click', function () {
+        resetFormModal();
+        closeModalForm();
+        emptyState.classList.add('d-none');
+        btnAddNewAddress.classList.remove('d-none');
+        addressCard.classList.remove('d-none');
+      });
 
       btnLocateMe.addEventListener('click', locateMe);
+
+      // ─── Modal Delete ─────────────────────────────────────────────────────────────
+
+      btnDelete.addEventListener('click', function () {
+        modalDelete.classList.remove('hidden');
+      });
+
+      [btnCloseModalDelete, btnCancelDelete].forEach(btn => {
+        btn.addEventListener('click', function () {
+          modalDelete.classList.add('hidden');
+        });
+      });
+
+      btnConfirmDelete.addEventListener('click', function () {
+        modalDelete.classList.add('hidden');
+        addressCard.classList.add('d-none');
+        emptyState.classList.remove('d-none');
+        btnAddNewAddress.classList.add('d-none');
+      });
+
+      // ─── Dropdowns ────────────────────────────────────────────────────────────────
 
       const iranData = {
         تهران: [
@@ -1603,11 +1592,11 @@
           'رودان',
           'جاسک',
         ],
-        گلستان: ['گرگان', 'گنبدکاووس', 'علی‌آباد', 'بندر ترکمن', 'کردکوی'],
       };
 
-      let selectedData = { province: null, city: null };
+      const selectedData = { province: null, city: null };
 
+      // پر کردن لیست استان‌ها
       const provinceDropdown = document.querySelector(
         '[data-type="province"] .dropdown-menu-custom',
       );
@@ -1627,15 +1616,13 @@
         const cityTrigger = document.querySelector(
           '[data-type="city"] .selected-value',
         );
-
         if (!cityDropdown) return;
 
         cityDropdown.innerHTML = '';
         if (cityTrigger) cityTrigger.textContent = '';
         selectedData.city = null;
 
-        const cities = iranData[provinceName] || [];
-        cities.forEach(cityName => {
+        (iranData[provinceName] || []).forEach(cityName => {
           const li = document.createElement('li');
           li.dataset.value = cityName;
           li.textContent = cityName;
@@ -1655,12 +1642,8 @@
             dd.querySelector('.dropdown-trigger').classList.remove('active');
           });
 
-          if (
-            parentDropdown.dataset.type === 'city' &&
-            !selectedData.province
-          ) {
+          if (parentDropdown.dataset.type === 'city' && !selectedData.province)
             return;
-          }
 
           if (!isActive) {
             parentDropdown.classList.add('active');
@@ -1685,9 +1668,7 @@
             item.textContent;
           selectedData[type] = item.dataset.value;
 
-          if (type === 'province') {
-            updateCities(item.dataset.value);
-          }
+          if (type === 'province') updateCities(item.dataset.value);
 
           dropdown.classList.remove('active');
           dropdown
