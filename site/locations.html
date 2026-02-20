@@ -858,31 +858,61 @@
                     >افزودن آدرس</span
                   >
                 </div>
-                <button
-                  class="btn-close-modal p-0"
-                  style="
-                    border: none;
-                    background-color: inherit;
-                    color: rgb(102, 102, 102);
-                  "
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-circle-x-icon lucide-circle-x"
+                <div class="d-flex align-items-center gap-4">
+                  <button
+                    class="d-none btn-delete-address p-0"
+                    style="
+                      border: none;
+                      background-color: inherit;
+                      color: rgb(102, 102, 102);
+                    "
                   >
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="m15 9-6 6" />
-                    <path d="m9 9 6 6" />
-                  </svg>
-                </button>
+                    <svg
+                      class="card-icon-primary"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-trash2-icon lucide-trash-2"
+                    >
+                      <path d="M10 11v6" />
+                      <path d="M14 11v6" />
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                      <path d="M3 6h18" />
+                      <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                    </svg>
+                  </button>
+                  <button
+                    class="btn-close-modal p-0"
+                    style="
+                      border: none;
+                      background-color: inherit;
+                      color: rgb(102, 102, 102);
+                    "
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-circle-x-icon lucide-circle-x"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="m15 9-6 6" />
+                      <path d="m9 9 6 6" />
+                    </svg>
+                  </button>
+                </div>
               </div>
             </div>
             <div class="py-3 px-4">
@@ -1184,6 +1214,9 @@
       const btnBackModalForm = document.querySelector(
         '.modal-form .btn-back-modal',
       );
+      const btnDeleteModalForm = document.querySelector(
+        '.modal-form .btn-delete-address',
+      );
       const btnLocateMe = document.querySelector('.btn-locate-me');
       const btnContinue = document.querySelector('.btn-continue');
       const btnSubmit = document.querySelector('.btn-submit-address');
@@ -1260,6 +1293,7 @@
 
       function resetFormModal() {
         modalFormTitle.textContent = 'افزودن آدرس';
+        btnDeleteModalForm.classList.add('d-none');
         btnBackModalForm.classList.remove('modal-closer');
       }
 
@@ -1276,6 +1310,7 @@
       btnsEditAddress.forEach(btn => {
         btn.addEventListener('click', function () {
           modalFormTitle.textContent = 'ویرایش آدرس';
+          btnDeleteModalForm.classList.remove('d-none');
           btnBackModalForm.classList.add('modal-closer');
           openModalForm();
         });
@@ -1340,8 +1375,10 @@
 
       // ─── Modal Delete ─────────────────────────────────────────────────────────────
 
-      btnDelete.addEventListener('click', function () {
-        modalDelete.classList.remove('hidden');
+      [btnDelete, btnDeleteModalForm].forEach(btn => {
+        btn.addEventListener('click', function () {
+          modalDelete.classList.remove('hidden');
+        });
       });
 
       [btnCloseModalDelete, btnCancelDelete].forEach(btn => {
@@ -1355,6 +1392,9 @@
         addressCard.classList.add('d-none');
         emptyState.classList.remove('d-none');
         btnAddNewAddress.classList.add('d-none');
+        if (!modalForm.classList.contains('hidden')) {
+          modalForm.classList.add('hidden');
+        }
       });
 
       // ─── Dropdowns ────────────────────────────────────────────────────────────────
