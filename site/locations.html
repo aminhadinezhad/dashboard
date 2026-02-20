@@ -1393,7 +1393,8 @@
         emptyState.classList.remove('d-none');
         btnAddNewAddress.classList.add('d-none');
         if (!modalForm.classList.contains('hidden')) {
-          modalForm.classList.add('hidden');
+          resetFormModal();
+          closeModalForm();
         }
       });
 
