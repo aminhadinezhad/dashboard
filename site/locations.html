@@ -1227,7 +1227,7 @@
       let map = null;
       let marker = null;
 
-      // ─── Map ───────────────────────────────────────────────────────────────────────
+      // Map
 
       function initMap() {
         if (map) {
@@ -1270,7 +1270,7 @@
         });
       }
 
-      // ─── Modal Map ────────────────────────────────────────────────────────────────
+      // Modal Map
 
       function openModalMap() {
         modalMap.classList.remove('hidden');
@@ -1281,7 +1281,7 @@
         modalMap.classList.add('hidden');
       }
 
-      // ─── Modal Form ───────────────────────────────────────────────────────────────
+      // Modal Form
 
       function openModalForm() {
         modalForm.classList.remove('hidden');
@@ -1297,7 +1297,7 @@
         btnBackModalForm.classList.remove('modal-closer');
       }
 
-      // ─── Event Listeners ──────────────────────────────────────────────────────────
+      // Event Listeners
 
       btnAddAddress.addEventListener('click', function () {
         openModalMap();
@@ -1373,7 +1373,7 @@
 
       btnLocateMe.addEventListener('click', locateMe);
 
-      // ─── Modal Delete ─────────────────────────────────────────────────────────────
+      // Modal Delete
 
       [btnDelete, btnDeleteModalForm].forEach(btn => {
         btn.addEventListener('click', function () {
@@ -1398,7 +1398,7 @@
         }
       });
 
-      // ─── Dropdowns ────────────────────────────────────────────────────────────────
+      // Dropdowns
 
       const iranData = {
         تهران: [
@@ -1637,7 +1637,6 @@
 
       const selectedData = { province: null, city: null };
 
-      // پر کردن لیست استان‌ها
       const provinceDropdown = document.querySelector(
         '[data-type="province"] .dropdown-menu-custom',
       );
