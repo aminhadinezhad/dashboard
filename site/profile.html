@@ -150,42 +150,42 @@
   <body>
     <div class="pt-4 pb-4">
       <div class="container-lg">
+        <div class="header d-flex py-3">
+          <a
+            href="../index.html"
+            class="d-flex align-items-center gap-2 text-decoration-none"
+            style="color: rgb(1, 46, 15)"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-circle-user-round-icon lucide-circle-user-round"
+            >
+              <path d="M18 20a6 6 0 0 0-12 0" />
+              <circle cx="12" cy="10" r="4" />
+              <circle cx="12" cy="12" r="10" />
+            </svg>
+            <span class="fw-semibold" style="font-size: 18px"
+              >محمد امین هادی نژاد</span
+            >
+          </a>
+        </div>
         <div class="row">
           <div class="col-lg-3">
             <div class="sidebar d-flex flex-column d-none d-lg-flex">
-              <div class="sidebar-header d-flex p-3">
-                <a
-                  href="../index.html"
-                  class="d-flex align-items-center gap-2 text-decoration-none"
-                  style="color: rgb(1, 46, 15)"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-circle-user-round-icon lucide-circle-user-round"
-                  >
-                    <path d="M18 20a6 6 0 0 0-12 0" />
-                    <circle cx="12" cy="10" r="4" />
-                    <circle cx="12" cy="12" r="10" />
-                  </svg>
-                  <span class="fw-semibold" style="font-size: 18px"
-                    >محمد امین هادی نژاد</span
-                  >
-                </a>
-              </div>
               <div class="sidebar-content flex-column">
                 <ul class="list-unstyled p-0">
                   <li class="nav-item mb-1">
                     <a
                       href="orders.html"
-                      class="nav-link d-flex align-items-center gap-2 px-3 py-2 rounded-3"
+                      class="nav-link d-flex align-items-center gap-2 py-2 rounded-3"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -210,7 +210,7 @@
                   <li class="nav-item mb-1">
                     <a
                       href="profile.html"
-                      class="nav-link d-flex align-items-center gap-2 px-3 py-2 rounded-3 active"
+                      class="nav-link d-flex align-items-center gap-2 py-2 rounded-3 active"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -236,7 +236,7 @@
                   <li class="nav-item mb-1">
                     <a
                       href="locations.html"
-                      class="nav-link d-flex align-items-center gap-2 px-3 py-2 rounded-3"
+                      class="nav-link d-flex align-items-center gap-2 py-2 rounded-3"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -261,7 +261,7 @@
                   <li class="nav-item mb-1">
                     <a
                       href="https://www.taminfalat.com/"
-                      class="nav-link d-flex align-items-center gap-2 px-3 py-2 rounded-3"
+                      class="nav-link d-flex align-items-center gap-2 py-2 rounded-3"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -396,8 +396,14 @@
           <div class="col-lg-9">
             <div class="content py-3">
               <div class="d-flex flex-column gap-4 px-1">
-                <div>
-                  <span class="fw-bold" style="font-size: 18px"
+                <div class="d-flex">
+                  <span
+                    class="fw-bold"
+                    style="
+                      font-size: 18px;
+                      padding-bottom: 8px;
+                      border-bottom: 2px solid rgb(0, 2, 0);
+                    "
                     >ویرایش پروفایل</span
                   >
                 </div>
@@ -851,11 +857,11 @@
                       </div>
                     </div>
                     <div
-                      class="info rounded-3 p-4 d-none"
+                      class="info rounded-3 px-4 d-none"
                       id="legal"
                       style="background-color: rgb(240, 245, 242)"
                     >
-                      <div class="text-center">
+                      <div class="text-center py-4">
                         <p style="color: rgb(33, 33, 33)">
                           با تکمیل مشخصات حقوقی، می‌توانید اقدام به خرید سازمانی
                           با دریافت فاکتور رسمی و گواهی ارزش افزوده نمایید.
@@ -923,20 +929,7 @@
                 class="d-flex flex-column gap-2 fw-semibold"
                 style="color: rgb(34, 120, 60)"
               >
-                نام
-                <div class="mb-4">
-                  <input
-                    type="text"
-                    class="modal-form-input modal-form-input--firstname w-100 py-2 px-1 fw-semibold"
-                  />
-                </div>
-              </label>
-              <label
-                for=""
-                class="d-flex flex-column gap-2 fw-semibold"
-                style="color: rgb(34, 120, 60)"
-              >
-                نام خانوادگی
+                نام و نام خانوادگی
                 <div class="mb-4">
                   <input
                     type="text"
