@@ -1,3 +1,7 @@
+body {
+  font-family: 'Vazirmatn', sans-serif;
+}
+
 .required {
   font-size: 12px;
   color: rgb(192, 21, 26);
