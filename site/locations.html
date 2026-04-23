@@ -150,7 +150,11 @@
         text-overflow: ellipsis;
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 991.98px) {
+        .fs-sm {
+          font-size: 14px !important;
+        }
+
         #map {
           height: 300px !important;
         }
@@ -158,9 +162,7 @@
         .modal-sm {
           width: 500px !important;
         }
-      }
 
-      @media (max-width: 576px) {
         #map {
           height: 300px !important;
         }
@@ -223,233 +225,143 @@
         </div>
         <div class="row">
           <div class="col-lg-3">
-            <div class="sidebar d-flex flex-column d-none d-lg-flex">
-              <div class="sidebar-content d-none d-lg-flex flex-column">
-                <ul class="list-unstyled p-0">
-                  <li class="nav-item mb-1">
-                    <a
-                      href="orders.html"
-                      class="nav-link d-flex align-items-center gap-2 py-2 rounded-3"
+            <div class="sidebar">
+              <ul class="list-unstyled p-0">
+                <li class="nav-item mb-1">
+                  <a
+                    href="orders.html"
+                    class="nav-link d-flex align-items-center gap-2 py-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-handbag"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-handbag-icon lucide-handbag"
-                      >
-                        <path
-                          d="M2.048 18.566A2 2 0 0 0 4 21h16a2 2 0 0 0 1.952-2.434l-2-9A2 2 0 0 0 18 8H6a2 2 0 0 0-1.952 1.566z"
-                        />
-                        <path d="M8 11V6a4 4 0 0 1 8 0v5" />
-                      </svg>
-                      <span>سفارش های من</span>
-                    </a>
-                  </li>
-                  <li class="nav-item mb-1">
-                    <a
-                      href="profile.html"
-                      class="nav-link d-flex align-items-center gap-2 py-2 rounded-3"
+                      <path
+                        d="M2.048 18.566A2 2 0 0 0 4 21h16a2 2 0 0 0 1.952-2.434l-2-9A2 2 0 0 0 18 8H6a2 2 0 0 0-1.952 1.566z"
+                      />
+                      <path d="M8 11V6a4 4 0 0 1 8 0v5" />
+                    </svg>
+                    <span class="fw-semibold">سفارش های من</span>
+                  </a>
+                </li>
+                <li class="nav-item mb-1">
+                  <a
+                    href="profile.html"
+                    class="nav-link d-flex align-items-center gap-2 py-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-user-round-pen"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-user-round-pen-icon lucide-user-round-pen"
-                      >
-                        <path d="M2 21a8 8 0 0 1 10.821-7.487" />
-                        <path
-                          d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"
-                        />
-                        <circle cx="10" cy="8" r="5" />
-                      </svg>
-                      <span class="fw-normal">ویرایش پروفایل</span>
-                    </a>
-                  </li>
-                  <li class="nav-item mb-1">
-                    <a
-                      href="locations.html"
-                      class="nav-link d-flex align-items-center gap-2 py-2 rounded-3 active"
+                      <path d="M2 21a8 8 0 0 1 10.821-7.487" />
+                      <path
+                        d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"
+                      />
+                      <circle cx="10" cy="8" r="5" />
+                    </svg>
+                    <span class="fw-semibold">ویرایش پروفایل</span>
+                  </a>
+                </li>
+                <li class="nav-item mb-1">
+                  <a
+                    href="locations.html"
+                    class="nav-link d-flex align-items-center gap-2 py-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-map-pin"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-map-pin-icon lucide-map-pin"
-                      >
-                        <path
-                          d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
-                        />
-                        <circle cx="12" cy="10" r="3" />
-                      </svg>
-                      <span>نشانی ها</span>
-                    </a>
-                  </li>
-                  <li class="nav-item mb-1">
-                    <a
-                      href="https://www.taminfalat.com/"
-                      class="nav-link d-flex align-items-center gap-2 py-2 rounded-3"
+                      <path
+                        d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
+                      />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span class="fw-semibold">نشانی ها</span>
+                  </a>
+                </li>
+                <li class="nav-item mb-1">
+                  <a
+                    href="#"
+                    class="nav-link d-flex align-items-center gap-2 py-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-log-out"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="lucide lucide-log-out-icon lucide-log-out"
-                      >
-                        <path d="m16 17 5-5-5-5" />
-                        <path d="M21 12H9" />
-                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-                      </svg>
-                      <span>خروج</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+                      <path d="m16 17 5-5-5-5" />
+                      <path d="M21 12H9" />
+                      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                    </svg>
+                    <span class="fw-semibold">خروج</span>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
 
-          <div class="bottombar fixed-bottom border-top border-2 d-lg-none">
-            <ul class="bottombar-nav">
-              <li class="bottom-nav-item">
-                <a href="../index.html" class="bottom-nav-link">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-circle-user-round-icon lucide-circle-user-round"
-                  >
-                    <path d="M18 20a6 6 0 0 0-12 0" />
-                    <circle cx="12" cy="10" r="4" />
-                    <circle cx="12" cy="12" r="10" />
-                  </svg>
-                  <span>داشبورد</span>
-                </a>
-              </li>
-
-              <li class="bottom-nav-item">
-                <a href="orders.html" class="bottom-nav-link">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                  >
-                    <path
-                      d="M2.048 18.566A2 2 0 0 0 4 21h16a2 2 0 0 0 1.952-2.434l-2-9A2 2 0 0 0 18 8H6a2 2 0 0 0-1.952 1.566z"
-                    />
-                    <path d="M8 11V6a4 4 0 0 1 8 0v5" />
-                  </svg>
-                  <span>سفارشات</span>
-                </a>
-              </li>
-
-              <li class="bottom-nav-item">
-                <a href="profile.html" class="bottom-nav-link">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                  >
-                    <path d="M2 21a8 8 0 0 1 10.821-7.487" />
-                    <path
-                      d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"
-                    />
-                    <circle cx="10" cy="8" r="5" />
-                  </svg>
-                  <span>پروفایل</span>
-                </a>
-              </li>
-
-              <li class="bottom-nav-item active">
-                <a href="locations.html" class="bottom-nav-link">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                  >
-                    <path
-                      d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"
-                    />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                  <span>نشانی ها</span>
-                </a>
-              </li>
-
-              <li class="bottom-nav-item">
-                <a href="https://www.taminfalat.com/" class="bottom-nav-link">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                  >
-                    <path d="m16 17 5-5-5-5" />
-                    <path d="M21 12H9" />
-                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-                  </svg>
-                  <span>خروج</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-
           <div class="col-lg-9">
-            <div class="content py-3">
+            <div class="content">
               <div class="d-flex flex-column gap-4 px-1">
-                <div class="d-flex justify-content-between">
-                  <span
-                    class="fw-bold"
-                    style="
-                      font-size: 18px;
-                      padding-bottom: 8px;
-                      border-bottom: 2px solid rgb(0, 2, 0);
-                    "
-                    >نشانی ها</span
-                  >
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="d-flex align-items-center gap-2">
+                    <a class="text-dark d-lg-none" href="../index.html">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-chevron-right-icon lucide-chevron-right"
+                      >
+                        <path d="m9 18 6-6-6-6" />
+                      </svg>
+                    </a>
+                    <span
+                      class="fs-sm fw-bold"
+                      style="
+                        font-size: 18px;
+                        padding-bottom: 8px;
+                        border-bottom: 2px solid rgb(0, 2, 0);
+                      "
+                      >نشانی ها
+                    </span>
+                  </div>
                   <button
                     class="d-none btn-add-new-address d-flex align-items-center gap-1"
                     style="
@@ -476,6 +388,7 @@
                     </svg>
                   </button>
                 </div>
+
                 <div class="empty-state d-flex flex-column align-items-center">
                   <img
                     src="../assets/images/location.png"

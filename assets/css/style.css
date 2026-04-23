@@ -64,20 +64,17 @@
   color: rgb(56, 134, 80);
 }
 
-.nav-item svg {
-  color: rgb(56, 134, 80);
-}
-
+.nav-item svg,
 .nav-item span {
   color: rgb(56, 134, 80);
 }
 
 @media (max-width: 991.98px) {
-  .header {
+  .sidebar {
     display: none !important;
   }
 
-  .sidebar {
+  .header {
     display: none !important;
   }
 
