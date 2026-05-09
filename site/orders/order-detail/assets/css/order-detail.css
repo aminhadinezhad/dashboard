@@ -1,0 +1,29 @@
+.transaction-btn.active .lucide-chevron-down {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 991.98px) {
+  .order-info {
+    justify-content: space-between !important;
+  }
+
+  .border-lg-none {
+    border: none !important;
+  }
+
+  .display-lg-none {
+    display: none !important;
+  }
+
+  .sidebar {
+    display: none !important;
+  }
+
+  .header {
+    display: none !important;
+  }
+
+  .content {
+    padding-bottom: 120px !important;
+  }
+}
